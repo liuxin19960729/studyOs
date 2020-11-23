@@ -1,0 +1,14 @@
+函数调用 的基本格式
+$(<function> <arguments>)
+
+
+字符串处理函数
+$(subst,"ee","EE","XXXee");
+替换XXXee 里面的ee,字符串变换成XXXEE,第一个参数from  ,第二个参数 to  第三个参数为字符串
+
+
+$(patsubst <pattern>,<replacement>,<text>)
+
+
+
+
