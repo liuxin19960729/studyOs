@@ -7,7 +7,84 @@ $(subst,"ee","EE","XXXee");
 替换XXXee 里面的ee,字符串变换成XXXEE,第一个参数from  ,第二个参数 to  第三个参数为字符串
 
 
+pattern 模式下的字符处理函数
 $(patsubst <pattern>,<replacement>,<text>)
+
+$(patsubst %.c,%.o,x.c.c bar.c)  x.c.c bar.c 两个字符串替换成了 x.c.o  bar.o
+
+“$(var:<pattern>=<replacement>;)” 
+相当于 “$(patsubst <pattern>,<replacement>,$(var))”，
+
+而“$(var: <suffix>=<replacement>)” 
+则相当于 “$(patsubst %<suffix>,%<replacement>,$(var))”。
+
+
+
+
+$(strip <string>)   去掉空格函数(去掉开头和结尾的空格)
+
+
+查找
+$(findstring <find>,<in>)  
+$(findstring a,a b c)  查找到了返回"a"字符串
+$(findstring a,b c)  没有查找领导返回""字符串变换成XXXEE
+
+
+
+过滤函数
+$(filter <pattern...>,<text>)
+这个函数返回text里面满足pattern要求的字符串
+
+
+
+反过滤函数
+$(filter-out <pattern...>,<text>)
+返回不符合pattern的字符串
+
+
+排序函数
+$(sort <list>) (去掉list里面的重复字符串在排序升序)
+$(sort foo bar lose)返回“bar foo lose” 。
+
+
+
+取单词函数
+$(word <n>,<text>)
+示例：$(word 2, foo bar baz)返回值是“bar”。
+n 大于  text里面的字符串返回 ""
+
+
+
+取单词串函数
+$(wordlist <ss>,<e>,<text>)  
+示例： $(wordlist 2, 3, foo bar baz)返回值是“bar baz”。
+返回 text 里面的 2到3的字符串  ss 比text大 返回 "" e 大于 text  返回 ss到 text结束
+
+
+
+统计单词个数
+$(words <text>)
+$(words foo bar baz)返回值是“3”。
+
+
+
+首单词函数
+$(firstword <text>)
+示例：$(firstword foo bar)返回值是“foo”。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
