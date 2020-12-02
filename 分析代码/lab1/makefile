@@ -183,10 +183,14 @@ COPY	:= cp
 MKDIR   := mkdir -p
 MV		:= mv
 RM		:= rm -f
+
+#
+
 AWK		:= awk
 SED		:= sed
 SH		:= sh
 TR		:= tr
+#  touch  命令 如果没有文件创建 文件， 有文件 改变文件创建时间  -c  表示没有这个文件不用创建新的文件
 TOUCH	:= touch -c
 
 OBJDIR	:= obj
