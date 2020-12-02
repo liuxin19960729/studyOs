@@ -20,6 +20,100 @@ V       := @
 #  0 stdin  1 stdout  2 stderr  2>&1  把stderr 重定义到 stdout
 # /dev/null  相当于是一销毁的地方,把语句重定向这个不存在的地方的目的是阻止输出到命令行
 #  shell  if 条件    和其他编程语言不同  返回状态为0(正常执行)才能进入到if的判断
+
+
+# grep  详解
+
+# 1.在文件中查找单词的模式
+# grep  单词  文件路径
+
+# 2.在多个文件中查找
+# grep单词  路径1 路径2 .....
+
+# 3. 查找包含单词的文件名
+# root@Linux-world:~# grep -l linuxtechi /etc/passwd /etc/shadow /etc/fstab /etc/mtab
+# /etc/passwd
+# /etc/shadow
+
+# 4.在文件中查找并显示匹配行的行号
+# root@Linux-world:~# grep -n linuxtechi /etc/passwd
+# 39:linuxtechi:x:1000:1000:linuxtechi,,,:/home/linuxtechi:/bin/bash
+
+
+# 5. -v 输出没有查找单词的行
+# grep  -v	单词  文件路径
+
+
+# 5  ^单词 返回以这单词开头的行
+# grep  ^单词  文件路径
+
+# 6	单词$  返回以这个单词结尾的行
+# grep  单词$  文件路径
+
+
+# 7. -r  递归查找
+# grep  -r 单词  路径
+
+# 8 查找文件中所有的空行
+
+# grep ^$  文件路径
+
+# 9 -i   忽略大小写查找
+
+# grep  -i 单词  文件路径
+
+
+# 10 -e  参数查找多个模式
+# grep -e  单词     -e  单词3   文件路径名
+
+
+# 11 用文件进行查找
+# root@Linux-world:~# cat grep_pattern
+# ^linuxtechi
+# root
+# false$
+# root@Linux-world:~#
+
+# root@Linux-world:~# grep -f grep_pattern /etc/passwd
+
+
+# 12 计算匹配到的数量
+
+# grep  -c 单词   文件路径
+
+# 13 输出匹配行的前几行
+
+# grep  -B  4   单词   文件路径     
+
+
+# 14 -C    输出 前后各多好行
+
+
+
+
+
+# grep '^elf32-i386$$'
+
+# 查找有没有elf32-i386$ 是单独站一行的
+
+
+/dev/null 2>&1
+
+2>&1  就是说STDERR现在和STDOUT 一样  
+
+
+2>&1 >/dev/null   2重定向到&1  &1在前面是 打印到屏幕   后面才说1重定向到/dev/null 
+
+
+>/dev/null 2>&1
+
+1 正常stdout  重定向到  /dev/null  stderr重定向到 &1  &1 重定向的位置前面是有的 >/dev/null
+
+
+
+
+
+
 ifndef GCCPREFIX
 GCCPREFIX := $(shell if i386-elf-objdump -i 2>&1 | grep '^elf32-i386$$' >/dev/null 2>&1; \
 	then echo 'i386-elf-'; \
@@ -101,3 +195,14 @@ BINDIR	:= bin
 ALLOBJS	:=
 ALLDEPS	:=
 TARGETS	:=
+
+
+#和c语言预处理指令是一样的  把文件引用到这里面来
+#-include tools/function.mk  前面加一个-不管他有没有找到都不会报错
+#1. 如果 make 执行时，有 -I 或 --include-dir 参数，那么 make 就会在这个参数所指定的目录下去
+#寻找。
+#2. 如果目录 <prefix>/include （一般是：/usr/local/bin 或 /usr/include ）存在的话，make 也
+#会去找
+# 到当前目录下找 tools目录,function.mk文件
+include tools/function.mk
+
