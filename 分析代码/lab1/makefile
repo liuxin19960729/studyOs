@@ -114,6 +114,8 @@ V       := @
 
 
 
+# $(shell shell命令)  会把shell 命令输出返回给变量
+
 ifndef GCCPREFIX
 GCCPREFIX := $(shell if i386-elf-objdump -i 2>&1 | grep '^elf32-i386$$' >/dev/null 2>&1; \
 	then echo 'i386-elf-'; \
@@ -244,9 +246,107 @@ listf_cc = $(call listf,$(1),$(CTYPE))  意思为
 
 
 
-	
+
+# 分析 create_target_cc
+create_target_cc = $(call create_target,$(1),$(2),$(3),$(CC),$(CFLAGS))
+$(call create_target,$(1),$(2),$(3),$(CC),$(CFLAGS)) //调用create_target方法  分别传入 $(1),$(2),$(3),clang 或 gcc ,  CFLAGS,变量的参数
+	create_target = $(eval $(call do_create_target,$(1),$(2),$(3),$(4),$(5)))
+	eval 函数  
+		gnu 描述
+		The eval function is very special: it allows you to define new makefile constructs that are not constant; (eval 允许定义新makefile构造，但是不能够是一个常量)
+		which are the result of evaluating other variables and functions. he argument(论证) to the eval function is expanded(扩展),
+		 then the results of that expansion( 然而这个扩展结果) are parsed as makefile syntax(语法). The expanded results can define new make variables, targets,
+		  implicit or explicit rules, etc.(这个扩展能够定影 新 make变量 ，目标  隐式显式规则等)
+
+		The result of the eval function is always the empty string (eval 总是返回 空字符串); 
+		thus, it can be placed(放置) virtually anywhere in a makefile without causing syntax errors.(放在makefile任何地方不会造成语法错误)
+
+		It’s important to realize that the eval argument is expanded twice; first by the eval function, 
+		then the results of that expansion are expanded again when they are parsed as makefile syntax. (evel 函数的第一个参数是传入的是我们需要解析的makefile 语法)
+		This means you may need to provide extra(额外，特别) levels of escaping for “$”(转义为 $) characters when using eval. The value function (see Value Function) can sometimes be useful in these situations, 
+		to circumvent unwanted expansions.
+
+		Here is an example of how eval can be used; this example combines(联合) a number of concepts and other functions. Although it might seem overly complex to use eval in this example,(联合参数和其他的方法组合成
+		强大的复合体)
+		rather than just writing out the rules, consider two things: first, the template definition (in PROGRAM_template) could need to be much more complex than it is here; and second,
+		you might put the complex, “generic” part of this example into another makefile, then include it in all the individual makefiles. Now your individual makefiles are quite straightforward.(个人的makefile)
+
+
+         例子
+		 	PROGRAMS    = server client
+
+			server_OBJS = server.o server_priv.o server_access.o
+			server_LIBS = priv protocol
+
+			client_OBJS = client.o client_api.o client_mem.o
+			client_LIBS = protocol
+
+			# Everything after this is generic
+
+			.PHONY: all
+			all: $(PROGRAMS)
+
+			define PROGRAM_template =
+			#$(1) 代表的是 call 传入进来的第一个参数
+			# server : $$(server_OBJS) $$(servel_LIBS::%=-l%)  第一个  $代表的是转义符号
+			$(1): $$($(1)_OBJS) $$($(1)_LIBS:%=-l%)
+			ALL_OBJS   += $$($(1)_OBJS)
+			endef
+            
+			# foreach的用法  $(foreach <var>,<list>,<text>)
+			#$(eval $(call xxx,参数))  是是没有返回的
+			$(foreach prog,$(PROGRAMS),$(eval $(call PROGRAM_template,$(prog)))) 
+
+			$(PROGRAMS):
+					$(LINK.o) $^ $(LDLIBS) -o $@
+
+			clean:
+					rm -f $(ALL_OBJS) $(PROGRAMS)  
 
 
 
 
 
+
+
+
+
+
+define do_create_target
+# totarget = $(addprefix $(BINDIR)$(SLASH),$(1)) -bin/${1}
+__temp_target__ = $(call totarget,$(1))  #-bin/${1}
+__temp_objs__ = $$(foreach p,$(call packetname,$(2)),$$($$(p))) $(3)  
+#  $(call packetname,$(2)) 为list  
+	#packetname = $(if $(1),$(addprefix $(OBJPREFIX),$(1)),$(OBJPREFIX))
+		#$(1) 非空 返回  __objs_${1}   空  返回 __objs_  这里的$(1)  是 最外层create_target 传入进来的$(2)
+
+	foreach  循环次数还是看 OBJPREFIX的值
+
+
+
+TARGETS += $$(__temp_target__)
+ifneq ($(4),)
+$$(__temp_target__): $$(__temp_objs__) | $$$$(dir $$$$@)
+	$(V)$(4) $(5) $$^ -o $$@
+else
+$$(__temp_target__): $$(__temp_objs__) | $$$$(dir $$$$@)
+endif
+endef
+
+
+
+
+
+$(kernel): $(KOBJS)
+	@echo + ld $@
+	$(V)$(LD) $(LDFLAGS) -T tools/kernel.ld -o $@ $(KOBJS)
+	@$(OBJDUMP) -S $@ > $(call asmfile,kernel)
+	@$(OBJDUMP) -t $@ | $(SED) '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > $(call symfile,kernel)
+
+$(KOBJS)
+$(call read_packet,kernel libs)
+read_packet=$(foreach p,$(call packetname,$(1)),$($(p)))
+
+packetname=$(if $(1),$(addprefix $(OBJPREFIX),$(1)),$(OBJPREFIX)) # __objs_kernel  __objs_libs
+
+read_packet =$(__objs_kernel)  $(__objs_libs)  
