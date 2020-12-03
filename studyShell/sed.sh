@@ -11,4 +11,13 @@ sed  -f  命令文件(绝对路径或者相对路径)  要修改的文件
 
 
 
-    
+
+sed  用其他符号进行分隔
+
+echo "xxxx" | sed  's!/bin/bash!/bin/xxx!'
+
+当命令需要使用到特殊符号的时候也可以用转义字符
+
+echo "xxxx" | sed  's/\/bin\/bash/\/bin\/xxx/'
+
+
