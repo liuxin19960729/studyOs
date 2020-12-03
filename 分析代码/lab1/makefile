@@ -210,3 +210,43 @@ TARGETS	:=
 # 到当前目录下找 tools目录,function.mk文件
 include tools/function.mk
 
+
+# 分析 listf_cc
+call 的用法：$(call 方法名 ,参数一,参数二)
+listf_cc = $(call listf,$(1),$(CTYPE))  在listf  里面参数对应的是$(1),$(2)
+
+listf 方法
+$(2)==listf_cc 传入的$(CTYPE)=c S
+$(1)==listf_cc传入的$(1)
+listf = $(filter $(if $(2),$(addprefix %.,$(2)),%),\
+		  $(wildcard $(addsuffix $(SLASH)*,$(1))))
+
+filter 的用法：$(filter ,pattern,text)  获取满足pattern条件的text
+作为filter的pattern
+$(if $(2),$(addprefix %.,$(2)),%)
+
+	if的用法  $(if <condition>,<then-part>)  $(if <condition>,<then-part>,<else-part>)  condition是判断条件
+	上面那句话的意思是说  判断 $(2) 不为空 就返回$(addprefix %.,$(2))(也就是 %.$(2)  %.c %.s)  为空   返回  %
+		$(addprefix ,addprefix, text) 返回加完前缀的字符串   addprefixtetx
+
+
+
+作为filter 的text
+$(wildcard $(addsuffix $(SLASH)*,$(1))) 
+	wildcard 的用法： $(wildcard command) 列举
+
+		addsuffix 加后缀 $(addsuffix,suffix,text)
+			返回 $(1)/*
+获取$(1)/*工作目录下的所有文件名
+
+listf_cc = $(call listf,$(1),$(CTYPE))  意思为
+	获取$(1)/*下文件名满足%.c  和  %.s  的文件
+
+
+
+	
+
+
+
+
+
