@@ -21,6 +21,9 @@ gawk  -f   脚本路径  文件
 
 
 
+#gawk 和sed 结合使用
+ gawk -F : '{print $1}' /etc/passwd |sed  's/s/**/'
+/etc/passwd 文件用 ：分隔  打印出第一列的时候在把s字符串替换成**
 
 
 
