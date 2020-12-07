@@ -43,7 +43,93 @@ ld -e main -T linker_script.lds -o app app.o tool.o tool_base.o
 
 
 
-程序入口
-    
+设置入口程序
+-e 在外部命令行 设置入口程序
+在链接脚本里面设置入口程序ENTRY(xxx)
+
+
+包含其他的链接脚本
+INCLUDE  filename
+
+指定输入文件
+INPUT(filename filename)   INPUT(filename,filename)
+
+指定输出文件
+OUTPUT(filename)
+
+设置二进制文件搜索路径
+SEARCH_DIR(path)
+
+设置首个输入文件
+STARTUP(filename)
+    相当于在命令行指定文件作为第一个参数
+
+例：
+    ENTRY(main) /* 设置入口程序为main*/
+    INPUT(tool.o tool_base.o) /*设置输入文件*/
+    STARTUP(app.o)/*设置第一个输入文件*/
+    OUTPUT(app) /*设置app的输出文件*/
+
+    SECTIONS
+    {
+    . = 0x400000;
+    .text : { *(.text) }
+    . = 0x8000000;
+    .data : { *(.data) }
+    . = 0xc000000;
+    .bss : { *(.bss) }
+    }
+
+指定输出文件格式
+OUTPUT_FORMAT(bfdname) 
+OUTPUT_FORMAT(default, big, little)
+OUTPUT_FORMAT命令指定输出文件的格式。
+其用法和命令行的中--oformat bfdname参数一致。
+
+查询输出本机所有的bdf格式
+可以通过objdump -i命令查看所有的bfd格式。本机的格式输出如下图。
+
+
+指定输入文件的格式
+    TARGET(bfdname) 相当于命令  -b bfdname
+    注意：
+        若TARGET 使用 OUTPUT_FRRMAT未使用则输出文件格式为为TARGET的最后一个参数
+
+
+存储别名
+REGION_ALIAS(alis,region)
+ 给存储单元*region*指定别名*alias*。
+
+MEMORY
+  {
+    RAM : ORIGIN = 0, LENGTH = 4M
+  }
+
+REGION_ALIAS("REGION_TEXT", RAM);
+REGION_ALIAS("REGION_RODATA", RAM);
+REGION_ALIAS("REGION_DATA", RAM);
+REGION_ALIAS("REGION_BSS", RAM);
+
+ 上述例子中，RAM被指定REGION_TEXT、REGION_RODATA、REGION_DATA和REGION_BSS四个别名。
+
+
+
+十一、断言
+ASSERT(exp, message)
+
+十二、声明外部符号
+EXTERN(symbol symbol ...)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
