@@ -91,4 +91,57 @@ elf 开头是文件 file header
 
 ```
 
+.text 机器码指令
+
+.data 全局变量和静态变量
+
+.bss 未初始化的全局变量和静态变量
+
+.rodata 只读数据段
+
+ .comment 注释信息数据段
+
+
+
+
+
+[root@VM_0_4_centos 01]# objdump -h app
+
+app:     file format elf64-x86-64
+
+Sections:
+Idx Name          Size     VMA               LMA               File off  Algn
+ 13 .text         00000262  0000000000400430  0000000000400430  00000430  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Size:表示段的长度
+FileOffset:段所在的位置
+
+ CONTENTS, ALLOC....., 表示段的各种属性
+    CONTENTS：表示该段在文件中存在
+
+
+
+
+```
+
+![alt elf结构](./imgs/elfdata.png)
+![alt elf结构](./imgs/elf结构.png)
+
+```
+size 命令
+    查看elf .data .text .bss 的长度
+size app
+   text    data     bss     dec(三个段的长度)    hex（长度的16进制） filename
+   1524     544       8    2076     81c app
+```
+
+
+
+### 代码段
+
+```
+ objdump -s  -d app
+    -s 将段里面的所有内容以16进制展示出来
+    -d 将包含指令的段进行反汇编
 ```
