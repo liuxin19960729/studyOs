@@ -19,6 +19,8 @@ elf 魔数
 ```
 typedef struct{
     unsigned char e_ident[16],
+    Elf32_Half e_type; 文件类型
+    Elf32_Half e_machine;  平台类型     
     ....
 }
 ```
@@ -75,3 +77,19 @@ readelf -h main.o  查看目标文件 elf头信息
   Number of section headers:         13
   Section header string table index: 12
 ```
+
+文件类型
+```
+ e_type; 文件类型
+Type: 表示的elf文件的类型
+        ET_REL 1 重定向文件
+        ET_EXEC 2 可执行文件
+        ET_DYN 3 共享目标文件 一般为.so文件
+
+```
+
+机器类型
+```
+e_machine 表示的是平台机器的属性
+```
+![alt 平台属性值](./imgs/e_mchine_value.png)
