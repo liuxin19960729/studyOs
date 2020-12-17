@@ -111,12 +111,20 @@
 
 
 function a(){
-    // console.log("ss")
+    console.log(this);
 }
-a._xxx=[];
-a.prototype.c=[];
+// a._xxx=[];
+// a.prototype.c=[];
+// a["sss"]=100;
 let x=new a();
-console.log(x);
-console.log(x.__proto__.c);
 
-console.log(x.__proto__.constructor._xxx);
+x.liuxin=function(){
+  console.log("sssss")
+}
+
+x.liuxin();
+// console.log(x);
+// console.log(x.__proto__.c);
+
+// console.log(x.__proto__.constructor._xxx);
+// console.log(a._xxx);
