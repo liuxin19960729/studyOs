@@ -109,8 +109,14 @@
 // let b=new a();
 
 
-let a=()=>({
-  c:1
-})
 
-console.log(a())
+function a(){
+    // console.log("ss")
+}
+a._xxx=[];
+a.prototype.c=[];
+let x=new a();
+console.log(x);
+console.log(x.__proto__.c);
+
+console.log(x.__proto__.constructor._xxx);
