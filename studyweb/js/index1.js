@@ -110,21 +110,31 @@
 
 
 
-function a(){
-    console.log(this);
-}
-// a._xxx=[];
-// a.prototype.c=[];
-// a["sss"]=100;
-let x=new a();
+// function a(){
+//     console.log(this);
+// }
+// // a._xxx=[];
+// // a.prototype.c=[];
+// // a["sss"]=100;
+// let x=new a();
 
-x.liuxin=function(){
-  console.log("sssss")
-}
+// x.liuxin=function(){
+//   console.log("sssss")
+// }
 
-x.liuxin();
+// x.liuxin();
 // console.log(x);
 // console.log(x.__proto__.c);
 
 // console.log(x.__proto__.constructor._xxx);
 // console.log(a._xxx);
+
+let a=function(obj){
+    obj.liuixn=function(){
+
+    }
+};
+let c={};
+a(c)
+console.log(c);
+console.log(window.a)
