@@ -1,3 +1,4 @@
+[官网](https://www.tslang.cn/docs/handbook/modules.html)
 ```
 
 非默认模块到导入和写法
@@ -95,5 +96,27 @@ export default $;
 
 ### export = 和 import = require()
 ```
-    CommonJS和Amd 规范含有
+    CommonJS和Amd 规范含有 exports 导出对象
+
+    Ts兼容他们提供  export = xxx
+    class LiuXin{
+    say(){
+        console.log("刘鑫")
+    }
+}
+
+export= LiuXin;
+
+
+
+引用
+import lx =require("./t2");
+
+
+
+
+注意：
+    export =语法定义一个模块的导出对象。 这里的对象一词指的是类，接口，命名空间，函数或枚举。
+
+    若使用export =导出一个模块，则必须使用TypeScript的特定语法import module = require("module")来导入此模块。
 ```
