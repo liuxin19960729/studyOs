@@ -81,9 +81,55 @@ export default class VMLabel extends VMBase {
     }
 
     //解析模板 获取初始格式化字符串格式 的信息
+
+        /**
+         * 解析模板
+         *
+         * 使用 {{0}} {{1}} {{2}} 方式设置模板内容（设置label 的 String 默认值）。在运行时，会动态的获取多路径监听的值，按数组内index 顺序替换掉 {{index}}。你可以额外添加修饰符号来格式化信息源，比如 {{0:int}} 会将数字内容以整数显示，{{0:time}} 以时间格式显示时间戳 等。
+
+        以下是目前支持的格式化内容:
+
+        - `int`  - 只显示整数部分
+        - `fix(n)` -显示小数位数
+        - `kmbt` - 以 K M B T 单位 缩短数字长度
+        - `per `  - 显示百分比
+        - `sep` - 以千位分号分割数字
+        - `limit(n)` - 限制文本字符长度
+        *
+        */
     parseTemplate() {
         let regexAll = /\{\{(.+?)\}\}/g; //匹配： 所有的{{value}}
         let regex = /\{\{(.+?)\}\}/;//匹配： {{value}} 中的 value
+         
+        /**
+         * 正则表达式学习
+         *      
+         * /\{\{(.+?)\}\}/g;
+         * 
+         *          /g   全局查找所有匹配项
+         * 
+         *    
+         * 
+         * /\{\{(.+?)\}\}/
+         * 
+         * 
+         * 
+         * 
+         *  ?: 匹配单个
+         *      .+?  .+var  var代表匹配的单个字符
+         *      （pattern） 将圆阔符里面的匹配结果返回
+         *      . 匹配除换行符（\n、\r）之外的任何单个字符。要匹配包括 '\n' 在内的任何字符，请使用像"(.|\n)"的模式
+         *      
+         * /\{\{(.+?)\}\}/  匹配单个
+         *   .除换行符之外的{} 里面的内容返回   、只返回匹配的第一个
+         *    
+         * 
+         * /\{\{(.+?)\}\}/g;
+         *     .除换行符之外的{} 里面的内容返回   、只返回所有，返回的是一个集合
+         *      {{0}}  - Lv.{{1}}
+         *       返回 ["{0}","{1}"]
+         * 
+         */
         let res = this.originText.match(regexAll);//匹配结果数组
         if (res == null) return;
         for (let i = 0; i < res.length; i++) {
@@ -168,7 +214,10 @@ export default class VMLabel extends VMBase {
     getLabelValue(): string {
         return this.getComponent(this.labelType).string;
     }
-
+    
+    /**
+     * 检查有节点下有没有挂载label相关的组件
+     */
     checkLabel() {
         let checkArray = [
             'cc.Label',
