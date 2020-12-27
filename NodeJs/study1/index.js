@@ -7,6 +7,7 @@ app.get('/', function (req, res) {
     // // console.log("进程id:"+process.pid)
     // process.kill(process.pid, 'SIGTERM')
     console.log(process.argv);
+    res.send("ss");
 });
 var server = app.listen(3000, function () { return console.log('服务器已就绪'); });
 // process.on('SIGTERM', () => {

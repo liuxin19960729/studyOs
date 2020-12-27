@@ -7,6 +7,7 @@ app.get('/', (req, res) => {
     // // console.log("进程id:"+process.pid)
     // process.kill(process.pid, 'SIGTERM')
     console.log(process.argv)
+    res.send("ss")
 })
 
 const server = app.listen(3000, () => console.log('服务器已就绪'))
