@@ -457,5 +457,160 @@ process.nextTick(() => {
 })
 
 
+当该操作结束时，JS 引擎会运行在该操作期间传给 nextTick 调用的所有函数。
+
+
+
+
+setTimeout(()=>{
+    console.log("time")
+},0)
+
+process.nextTick(()=>{
+    console.log("next")
+})
+
+
+打印结果
+      next
+      time
+
+
+      progress.nextTick 在时间循环之前调用
+      
+      setTimeout  在循环里面调用
+
+
+
+   process.nextTick(()=>{
+        console.log("next")
+    })   要早于所有异步  因为大师在时间循环开始之前执行的
 ```
 
+
+
+
+### 了解 setImmediate()
+
+```
+   作用：
+    当要异步地（但要尽可能快）执行某些代码时
+
+
+
+setImmediate() 与 setTimeout(() => {}, 0)（传入 0 毫秒的超时）、process.nextTick() 有何不同？
+
+
+
+
+
+传给 process.nextTick() 的函数会在事件循环的当前迭代中（当前操作结束之后）被执行。 这意味着它会始终在 setTimeout 和 setImmediate 之前执行。
+
+延迟 0 毫秒的 setTimeout() 回调与 setImmediate() 非常相似。 执行顺序取决于各种因素，但是它们都会在事件循环的下一个迭代中运行。
+
+
+```
+
+
+
+### 探索 JavaScript 定时器
+
+
+```
+setTimeout(calback,times,...args)
+
+// 改变主意了
+clearTimeout(id)
+
+
+
+
+ 美国多久执行一次
+setInterval()
+
+clearInterval(id)
+
+
+
+
+
+
+```
+
+
+
+### JavaScript 异步编程与回调
+
+```
+Promise 如何运作
+它会以处理中状态开始。 这意味着调用的函数会继续执行，而 promise 仍处于处理中直到解决为止，从而为调用的函数提供所请求的任何数据。
+
+被创建的 promise 最终会以被解决状态或被拒绝状态结束，并在完成时调用相应的回调函数（传给 then 和 catch）。
+
+
+
+
+
+
+
+```
+
+
+例子：
+```js
+let done = true
+
+const isItDoneYet = new Promise((resolve, reject) => {
+  if (done) {
+    const workDone = '这是创建的东西'
+    resolve(workDone)
+  } else {
+    const why = '仍然在处理其他事情'
+    reject(why)
+  }
+})
+
+resolve() 解决状态
+
+reject(); 决绝状态
+
+不调用这两个函数状态就是解决中
+
+
+
+
+
+
+```
+
+
+
+### Node.js 事件触发器
+
+
+```
+
+在后端，Node.js 也提供了使用 events 模块构建类似系统的选项。
+
+具体上，此模块提供了 EventEmitter 类，用于处理事件。
+const EventEmitter = require('events')
+const eventEmitter = new EventEmitter()
+
+
+
+
+该对象公开了 on 和 emit 方法。
+
+emit 用于触发事件。
+on 用于添加回调函数（会在事件被触发时执行）
+
+
+
+EventEmitter 对象还公开了其他几个与事件进行交互的方法，例如：
+
+once(): 添加单次监听器。
+removeListener() / off(): 从事件中移除事件监听器。
+removeAllListeners(): 移除事件的所有监听器。
+
+
+```
