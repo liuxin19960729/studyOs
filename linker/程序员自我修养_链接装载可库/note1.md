@@ -8,11 +8,21 @@ gcc main.c
     汇编
     链接
 ```
+hello.c
+```c
+#include <"stdio.h">
+int main(){
+   printlf("hello word \n");     
+   return 0;
+}
+```
+编译过程图示
 ![alt gcc编译过程分解](./imgs/gccCom.png)
 
 gcc build(构建)的4个过程解释
 ### 预编译
 ```
+
    源文件的头文件进行一个编译
    例：
         main.c 文件用了头文件 stdio.h,stido.h会预编器编译成一个 stdio.i的文件
