@@ -1,0 +1,37 @@
+{
+  "name": "hello-world",
+  "version": "0.0.1",
+  "description": "一份简单的扩展包",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "扩展/Hello World": {
+      "message": "hello-world:say-hello"
+    },
+    "扩展/Hello World2": {
+      "message": "hello-world:open"
+    }
+  },
+  "reload": {
+    "test": [
+      "/*",
+      "/*"
+    ],
+    "renderer": [
+      "/*",
+      "/*"
+    ],
+    "ignore": [],
+    "main": []
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "id",
+    "width": 400,
+    "height": 300
+  },
+  "dependencies": {
+    "@types/node": "^14.14.16"
+  }
+}
