@@ -1,6 +1,8 @@
 import DD from "../scripts/DD";
 import Beans from "./common/Beans";
-import { Loader } from "./common/load/Loader";
+import DataMgr from "./common/data/DataMgr";
+import JsonMgr from "./common/json/JsonMgr";
+import ResMgr from "./common/load/ResMgr";
 import Log from "./common/log/Log";
 
 class Global{
@@ -8,16 +10,22 @@ class Global{
         return Beans.getBean("DD",DD);
     }
 
-    /**
-     * 加载资源类
-     */
-    get loader():Loader{
-        return Beans.getBean("Loader",Loader);
-    }
-
     get log():Log{
         return  Beans.getBean("Log",Log);
     }
+
+    get resMgr():ResMgr{
+        return  Beans.getBean("ResMgr",ResMgr);
+    }
+
+    get json():JsonMgr{
+        return Beans.getBean("JsonMgr",JsonMgr);
+    }
+
+    get data():DataMgr{
+        return Beans.getBean("DataMgr",DataMgr);
+    }
+
 }
 
 let G =Beans.getBean("G",Global);
