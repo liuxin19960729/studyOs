@@ -7,7 +7,7 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class T extends UiBase<null> {
     onShow(){
-        G.resMgr.cacheLoadJson("data",URL_TYPE.DIR);
+        G.json.loadJson("data");
 
     }
 

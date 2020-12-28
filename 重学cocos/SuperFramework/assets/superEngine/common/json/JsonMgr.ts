@@ -1,9 +1,17 @@
+import G from "../../G";
+import Load from "../load/Load";
 import JsonData from "./JsonData";
 
 /**
  * Json管理
  */
 export default class JsonMgr{
+    private _load:Load=null;
+    constructor(){
+        if(!this._load){
+            this._load=new Load();
+        }
+    }
     
     private _jsonData:{[key:string]:JsonData<any>}={};
 
@@ -45,5 +53,35 @@ export default class JsonMgr{
     }
     get t_book_template():JsonData<dt.BookTemplate>{
          return this.getJsonData("t_adven_template")
+    }
+
+        /**
+     * 加载json
+     */
+    private _loadJson(url:string):Promise<cc.JsonAsset|Array<cc.JsonAsset>>{
+        const self=this;
+        return new Promise<Array<cc.JsonAsset>>((resl,rej)=>{
+            self._load.loadDir(url,cc.JsonAsset,(data,err)=>{
+                if(err){
+                    rej(err);
+                }else{
+                    resl(data);
+                }
+            })
+        })
+    }
+
+        /**
+     * 加载并缓存Json
+     */
+    async loadJson(url:string){
+        const self=this;
+        if(!this._loadJson(url)) return;
+        await this._loadJson(url).then((data)=>{
+            //缓存起来啊
+           self.saveJson(data);
+        }).catch((err)=>{
+            G.log.error(err);
+        })
     }
 }

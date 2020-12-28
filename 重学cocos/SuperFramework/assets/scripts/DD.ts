@@ -11,6 +11,6 @@ const {ccclass, property} = cc._decorator;
 export default class DD  {
 
    A(){
-       console.log("a");
+    //    console.log("a");
    }
 }

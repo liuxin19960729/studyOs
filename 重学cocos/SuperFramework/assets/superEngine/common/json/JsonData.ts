@@ -24,8 +24,5 @@ export default class JsonData<T extends {id:number|string}>{
     All():Array<T>{
        return this._array;
     };
-
-    
-    
 }
 
