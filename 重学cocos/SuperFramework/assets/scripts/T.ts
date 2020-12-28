@@ -8,6 +8,10 @@ const {ccclass, property} = cc._decorator;
 export default class T extends UiBase<null> {
     onShow(){
         G.json.loadJson("data");
+        let e= G.encry.encrypt("LIUXIN");
+        console.log(e);
+        let d= G.encry.decrypt(e);
+        console.log(d);
 
     }
 
