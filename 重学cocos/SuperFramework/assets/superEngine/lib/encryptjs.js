@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-window.encryptjs= function () {
+window.encrypt= function () {
     /**
  * Rijndael cipher encryption routines,
  *
@@ -227,14 +227,14 @@ Algo.rCon = [ [0x00, 0x00, 0x00, 0x00],
 if (typeof module != 'undefined' && module.exports) module.exports = Algo; // CommonJs export
 if (typeof define == 'function' && define.amd) define([], function() { return Algo; }); // AMD
     // 'use strict';
-    encryptjs = { version: '1.0.0' };
+    encrypt = { version: '1.0.0' };
 
     //Right before exporting the validator object, pass each of the builtins
     //through extend() so that their first argument is coerced to a string
-    encryptjs.init = function () {
+    encrypt.init = function () {
     };
 
-    encryptjs.encrypt = function(plaintext, password, nBits) {
+    encrypt.encrypt = function(plaintext, password, nBits) {
         var blockSize = 16;  // block size fixed at 16 bytes / 128 bits (Nb=4)
         if (!(nBits==128 || nBits==192 || nBits==256)) return ''; // standard allows 128/192/256 bit keys
         plaintext = String(plaintext).utf8Encode();
@@ -300,7 +300,7 @@ if (typeof define == 'function' && define.amd) define([], function() { return Al
         return ciphertext;
     };
 
-    encryptjs.decrypt = function(ciphertext, password, nBits) {
+    encrypt.decrypt = function(ciphertext, password, nBits) {
         var blockSize = 16;  // block size fixed at 16 bytes / 128 bits (Nb=4) for AES
         if (!(nBits==128 || nBits==192 || nBits==256)) return ''; // standard allows 128/192/256 bit keys
         ciphertext = String(ciphertext).base64Decode();
@@ -355,7 +355,7 @@ if (typeof define == 'function' && define.amd) define([], function() { return Al
         return plaintext;
     };
 
-    encryptjs.getTextEncryptAndSaveToTextFile = function(filePath,password,nBits) {
+    encrypt.getTextEncryptAndSaveToTextFile = function(filePath,password,nBits) {
         if (!rl) throw Error("Command line not supported on this platform");
         rl.question("Enter the text to be encrypted: ", function(answer) {
             // TODO: Log the answer in a database
@@ -368,7 +368,7 @@ if (typeof define == 'function' && define.amd) define([], function() { return Al
         });
     };
 
-    encryptjs.getTextEncryptAndSaveToJSONFile = function(filePath,password,nBits) {
+    encrypt.getTextEncryptAndSaveToJSONFile = function(filePath,password,nBits) {
         if (!rl) throw Error("Command line not supported on this platform");
         rl.question("Enter the text to be encrypted: ", function(answer) {
             // TODO: Log the answer in a database
@@ -381,7 +381,7 @@ if (typeof define == 'function' && define.amd) define([], function() { return Al
         });
     };
 
-    encryptjs.writeCipherTextToJSON=function(file, obj, options, callback) {
+    encrypt.writeCipherTextToJSON=function(file, obj, options, callback) {
         if (callback == null) {
             callback = options;
             options = {}
@@ -433,8 +433,10 @@ if (typeof define == 'function' && define.amd) define([], function() { return Al
             throw new Error('No Base64 Decode');
         };
     }
-    encryptjs.init();
+    encrypt.init();
 
-    return encryptjs;
+    return encrypt;
 
 };
+
+window.encrypt();
