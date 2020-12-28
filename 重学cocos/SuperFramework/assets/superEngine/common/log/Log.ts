@@ -4,16 +4,16 @@
  */
 export default class Log {
     debug(str: string, ...args: any[]) {
-        throw new Error("Method not implemented.");
+       console.log(str)
     }
     error(str: string, ...args: any[]) {
-        throw new Error("Method not implemented.");
+        console.error(str)
     }
     log(str: string, ...args: any[]) {
-        throw new Error("Method not implemented.");
+        console.log(str)
     }
     war(str: string, ...args: any[]) {
-        throw new Error("Method not implemented.");
+        console.log(str)
     }
 
 }
