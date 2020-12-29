@@ -54,28 +54,37 @@ gcc -E hello.c -o hello.i
 
 
 
- 注意：
-                           
+
+ccl 在gcc里面主要工作是预编译和编译
+                        
 
 ```
+centos 的包装器 位置
+
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
+
+
+ccl 在ubuntu位置
+
+![alt ccl](./imgs/cclpos.png)
+
+在这里我们知道了gcc就是 ccl  as编译器 连接器ld的包装  gcc会根据不同的参数在后台调用对应的程序
+
+
 
 ### 汇编
 
 ```
-汇编器是将汇编代码转变为机器可以执行的命令
-        汇编器不像编器器那样复杂词法分析等，他就是把汇编指令翻译成计算机能认识的机器码
+将编译的汇编编代码通过汇编器转换为机器码
 
-        as  xxx.s    -o  xxx.o
+两种方式转化
 
-        获取
+as  hello.s  -o hello.o
 
-        gcc -c hello.s -o hello.o
-
-        gcc -c  其实也能直接重  .c文件 通过预编译 编译 汇编直接生成目标文件(xxx.o)的
-        文件
+gcc -c hello.s  -o  hello.o
 
 
-
+xxx.o 这个文件就是我们平时说的目标文件
 ```
 
 
