@@ -1,7 +1,6 @@
 import DD from "../scripts/DD";
 import Beans from "./common/Beans";
 import DataMgr from "./common/data/DataMgr";
-import encryptionMgr from "./common/encryption/encryptionMgr";
 import JsonMgr from "./common/json/JsonMgr";
 import ResMgr from "./common/load/ResMgr";
 import Log from "./common/log/Log";
@@ -26,11 +25,6 @@ class Global{
     get data():DataMgr{
         return Beans.getBean("DataMgr",DataMgr);
     }
-
-    get encry():encryptionMgr{
-        return Beans.getBean("encryptionMgr",encryptionMgr);
-    }
-
 }
 
 let G =Beans.getBean("G",Global);
