@@ -29,3 +29,52 @@ The 80386 is an advanced(先进，高级) 32-bit microprocessor
   
   芯片的内存管理工具包含地址转换寄存器， 先进的多任务硬件，保护机制和分页机制，虚内存，特殊的debug寄存器，event(甚至)在可读内存软件能够进行数据和代码的端点
 ```
+
+### 1.1 Organization(组织,机构) of This Manual(adj 手工的  n 手册)
+翻译： 手册的结构
+
+```
+   Part I      -- Applications Programming  第一部分引用程序
+   Part II     -- Systems Programming 第二部分系统程序
+   Part III    -- Compatibility  兼容性 /kəmˌpætəˈbɪləti/
+   Part IV     -- Instruction Set 指令集
+   Appendices  附加
+
+   These divisions(dɪˈvɪʒnz  划分部分,分隔 )are determined(决定) in part by the architecture(架构 /ˈɑːkɪtektʃər/) itself and in part by the different ways the book will be used. 
+   这划分部分由他自己的架构决定，部分由本书使用不同的方式
+   
+   As the following table indicates, the latter two parts are intended as reference material for programmers actually engaged in the process of developing software for the 80386.
+
+   As the following  如下
+   indicates 指示,显示  [ˈɪndɪkeɪts]
+
+   actually 事实上
+   
+   engaged  v参加,雇佣，从事  adj 忙碌的
+
+   intended 故意的,有意的   /ɪnˈtendɪd/
+    
+   as reference  material 参考材料
+
+    翻译： 如下表指示 ，后面两部分，(for) 为了程序员 从事engaged  actualy实际 在80386处理器开发软甲 as  作为  参考材料
+
+    The first three parts are explanatory, showing the purpose of architectural features,
+      
+      explanatory  /ɪkˈsplænətri/ 说明，解释 
+      purpose    /ˈpɜːpəs/   用途
+
+      The first three parts  前三部分
+
+      features  /ˈfiːtʃəz/ 
+                     n. 产品特点，特征；容貌；嘴脸（feature的复数）
+                   v. 是…的特色，使突出（feature的第三人称单数）
+      
+      翻译   前三部分是解释说明，展示用途的建筑特征
+     developing terminology and concepts, and describing instructions as they relate to specific purposes or to specific architectural features.
+       terminology  /ˌtɜːmɪˈnɒlədʒi/  术语，用辞
+       concepts  /ˈkɒnsɛpt/   概念，观念；思想
+       relate to   /rɪˈleɪt/  涉及
+
+
+       翻译：开发术语和概念描述，他们涉及特殊的用途或者特别的建筑特征相关指令
+```
