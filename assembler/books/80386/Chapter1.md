@@ -22,7 +22,7 @@ The 80386 is an advanced(先进，高级) 32-bit microprocessor
          就是这样计算出来的
 
   The on-chip(chip 芯片) memory-management 
-  facilities(工具，设备) include address translation(翻译，转换) registers,
+  facilities(  /fə'sɪlɪtɪz/  工具，设备) include address translation(翻译，转换) registers,
   芯片上的内存管理设备包含地址转换寄存器
   
   advanced multitasking hardware, a protection(保护) mechanism(机制，机构，原理), and paged virtual memory. Special debugging registers provide data and code breakpoints even in ROM-based software.
@@ -77,4 +77,53 @@ The 80386 is an advanced(先进，高级) 32-bit microprocessor
 
 
        翻译：开发术语和概念描述，他们涉及特殊的用途或者特别的建筑特征相关指令
-```
+
+
+
+
+
+The first three parts follow the execution modes and protection features of the 80386 CPU. 
+ 
+ 翻译 前三部分介绍 80386cpu 执行模式和保护模式
+
+
+The distinction between applications features and systems features is determined by the protection mechanism of the 80386. 
+
+  distinction   /dɪˈstɪŋkʃn/   区别；差别；特性；荣誉、勋章
+  mechanism   /ˈmekənɪzəm/   机制；原理，途径；进程；机械装置；技巧
+
+ 翻译： 应用程序特征和系统程序特征之间的差异是由80386保护模式机制决定的
+One purpose of protection is to prevent applications from interfering with the operating system; 
+    interfering  /ˌɪntəˈfɪərɪŋ/ adj. 干涉的；多管闲事的
+
+    purpose  /ˈpɜːpəs/ n. 目的；用途；意志  vt. 决心；企图；打算
+    prevent  预防，避免
+
+
+    翻译：保护模式的第一个目的 预防应用程序干扰操作系统
+
+
+therefore, the processor makes certain registers and instructions inaccessible to applications programs. 
+    therefore  /ˈðeəfɔːr/  因此
+    certain   /ˈsɜːtn/  某一；必然的；确信；无疑的；有把握的  pron. 某些；某几个
+    inaccessible  /ˌɪnækˈsesəbl/  adj. 难达到的；难接近的；难见到的
+    accessible  /əkˈsesəbl/  adj. 易接近的；可进入的；可理解的
+
+翻译：
+  因此 ，处理器使用的某一些寄存器和指令 应用程序不能够访问
+The features discussed in Part I are those that are accessible to applications; 
+    discussed  /dɪˈskʌst/   v. 讨论（discuss的过去分词）；商讨
+    that 那些 
+    第一部分商讨那些可以访问的引用程序的特征
+   
+the features in Part II are available only to systems software that has been given special privileges or in unprotected systems.
+
+      available   /əˈveɪləbl/ adj. 可获得的；可购得的；可找到的；有空的，适用于
+      privileges   /ˈprɪvəlɪdʒɪz/   n. [计] 特权（privilege的复数）    n. [计] 特权（privilege的复数）
+
+      given   /ˈɡɪvn/  获得 赋予
+
+    翻译  第二部分 仅适用于  才做系统被赋予可出的权限 或不受保护的系统
+
+```  
+
