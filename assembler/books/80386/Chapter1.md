@@ -125,5 +125,72 @@ the features in Part II are available only to systems software that has been giv
 
     翻译  第二部分 仅适用于  才做系统被赋予可出的权限 或不受保护的系统
 
+
+
+The processing mode of the 80386 also determines the features that are accessible. The 80386 has three processing modes:
+
+80386 处理器模式决定可以访问的特征，80386有三种处理模式 
+
+   1.  Protected Mode.保护模式
+   2.  Real-Address Mode. 实模式
+   3.  Virtual 8086 Mode. 虚拟模式
+
+
+
+Protected mode is the natural 32-bit environment of the 80386 processor.
+    natural   /ˈnætʃrəl/   adj. 自然的；物质的；天生的；不做作的   n. 自然的事情；白痴；本位音
+
+    翻译：在80386处理器 自然的32位环境就是保护模式
+ In this mode all instructions and features are available.
+
+  翻译 在这个模式(保护模式) 所有指令和特征是可用的
+
+
+
+
+Real-address mode (often called just "real mode") is the mode of the processor immediately after RESET.
+    often   /ˈɒfn; ˈɒftən/   adv. 常常，时常；往往，大多
+    immediately   /ɪˈmiːdiətli/    立即，立刻；直接地    conj. 一…就
+
+    翻译；: 处理器重置之后立即就变成实模式
+ In real mode the 80386 appears to programmers as a fast 8086 with some new instructions. 
+  
+  appears    /ə'pɪəs/    v. 出现；呈现；看上去好像
+
+    to  有对于的意思
+
+  翻译 80386出现了实模式  对于程序员像是一个提供一些新指令的一个快速的8086 
+
+ Most applications of the 80386 will use real mode for initialization only.
+    在80386中大多数应用程序使用实模式仅仅为了初始化
+
+
+
+
+
+Virtual 8086 mode (also called V86 mode) is a dynamic mode in the sense that the processor can switch(交换，开关) repeatedly and rapidly between V86 mode and protected mode.
+
+      sense   /sens/  n. 感觉，官能；观念；道理；理智    vt. 感觉到；检测
+      in the sense  就....而言
+      rapidly   /ˈræpɪdli/    adv. 迅速地；很快地；立即
+
+      翻译 虚拟8086模式(也叫做V86模式),是一个动态模式，就动态模式而言就是说处理器能够反复快速的在V86(8086)虚拟模式和保护模式之间切换
+
+
+ The CPU enters V86 mode from protected mode to execute an 8086 program, 
+ CPU从保护模式进入v86模式执行一个8086程序
+ then leaves V86 mode and enters protected mode to continue executing a native 80386 program.
+      leaves    /liːvz/ v. 离开；让……留下 
+      翻译: 甚至离开V86模式 进入到保护模式 继续执行一个本地(原生)的80386的程序
+
+
+
+
+The features that are available to applications programs in protected mode and to all programs in V86 mode are the same.
+        are the same  一样
+
+        翻译： 这些特征 适用于 保护模式下的应用程序和在v86模式下的所有程序，都是一样的
+
+ These features form the content of Part I. The additional features that are available to systems software in protected mode form Part II. Part III explains real-address mode and V86 mode, as well as how to execute a mix of 32-bit and 16-bit programs.      
 ```  
 
