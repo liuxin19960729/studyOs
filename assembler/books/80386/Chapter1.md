@@ -191,6 +191,65 @@ The features that are available to applications programs in protected mode and t
 
         翻译： 这些特征 适用于 保护模式下的应用程序和在v86模式下的所有程序，都是一样的
 
- These features form the content of Part I. The additional features that are available to systems software in protected mode form Part II. Part III explains real-address mode and V86 mode, as well as how to execute a mix of 32-bit and 16-bit programs.      
+ These features form the content of Part I. 
+      form   /fɔːm/  构成
+
+      翻译: 这些特征构成第一部分
+
+
+ The additional features that are available to systems software in protected mode form Part II. 
+       additional   /əˈdɪʃənl/    adj. 附加的，额外的
+
+    翻译：  在保护模式下，额外添加新特征，构成第二部分
+ Part III explains real-address mode and V86 mode, as well as how to execute a mix of 32-bit and 16-bit programs.      
+      explains  /ɪkˈspleɪnz/    v. 解释；说明（explain的三单形式）
+      mix    /mɪks/   v. （使）混和；配制；参与  n. 混合；良莠不齐；混合物；
+
+      翻译  第三部分 解释了实模式和v86(virtual 8086 mode)  mode 怎样混合执行32位和16位的程序
+
+
+
+
+Available in All Modes             Part I -- Applications Programming
+
+Available in Protected             Part II -- Systems Programming
+Mode Only
+
+Compatibility Modes    兼容模式            Part III -- Compatibility
+      Compatibility   /kəmˌpætəˈbɪləti/   n. [计] 兼容性
+
+
+
 ```  
 
+
+###  1.1.1 Part I -- Applications Programming
+
+
+```
+This part presents those aspects of the architecture that are customarily used by applications programmers.
+        presents   ˈpreznts/    n. 礼物（present 的复数）   v. 颁发；赠送；提交；展示；致谢
+        those   那些（that 的复数）
+        aspects    /'æspekts/   n. 方面；相位；面貌（aspect的复数 
+        architecture  架构   /ˈɑːkɪtektʃər/
+        customarily   ˈkʌstəmərəli/  adv. 通常，习惯上 
+
+        翻译  这部分介绍应用软件程序员通常使用架构那方面
+Chapter 2 -- Basic Programming Model: Introduces the models of memory organization. Defines the data types.
+        翻译 章节二，基本编程模型，介绍内存管理组织模型，定义数据类型
+ Presents the register set used by applications. 
+      .......by xxx   ...xxx.........  xxx提前
+    翻译：  展示一些应用程序，使用寄存器
+ Introduces the stack. Explains string operations. Defines the parts of an instruction. 
+        operations    /,ɑpə'reʃən/    n. 运营；运作；业务操作（operation的复数)
+         axxxxx of  bbb          翻译顺序  abbb xxxx
+         介绍栈，解释字符串操作，定义指令的各个部分
+ Explains addressing calculations. Introduces interrupts and exceptions as they may apply to applications programming.
+
+      may   /meɪ/    可以，能够；可能，也许；祝，愿；会，能
+      apply   /əˈplaɪ/    申请；涂，敷；应用 
+
+
+      翻译： 解释地址计算，介绍 应用程序可能应用的中端和异常
+Chapter 3 -- Application Instruction Set: Surveys the instructions commonly used for applications programming. Considers instructions in functionally related groups; for example, string instructions are considered in one section, while control-transfer instructions are considered in another. Explains the concepts behind the instructions. Details of individual instructions are deferred until Part IV, the instruction-set reference.
+```
