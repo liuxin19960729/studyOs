@@ -251,5 +251,104 @@ Chapter 2 -- Basic Programming Model: Introduces the models of memory organizati
 
 
       翻译： 解释地址计算，介绍 应用程序可能应用的中端和异常
-Chapter 3 -- Application Instruction Set: Surveys the instructions commonly used for applications programming. Considers instructions in functionally related groups; for example, string instructions are considered in one section, while control-transfer instructions are considered in another. Explains the concepts behind the instructions. Details of individual instructions are deferred until Part IV, the instruction-set reference.
+Chapter 3 -- Application Instruction Set: Surveys the instructions commonly used for applications programming.
+      Surveys     /sər've/     n. 调查 
+
+
+      翻译：  第三章  应用指令集 ，调查应用程序通常使用的指令
+ Considers instructions in functionally related groups; 
+      Consider   /kənˈsɪdər/   考虑；认为；考虑到；细想 
+      related    /rɪˈleɪtɪd/    adj. 有关系的，有关联的；讲述的，叙述的 
+      functionally   /ˈfʌŋkʃənəli/    adv. 功能地；函数地；职务上地
+      翻译： 功能分组相关的考虑指令
+ for example, string instructions are considered in one section, while control-transfer instructions are considered in another.
+        翻译  例如 ，字符串指令考虑在一个部分，虚幻控制转移指令考虑另一部分
+  Explains the concepts behind the instructions. 
+        behind   /bɪˈhaɪnd/     在……的后面     朝……后面；
+
+        翻译：解释概念在指令后面
+  Details of individual instructions are deferred until Part IV, the instruction-set reference.
+        Details   /'dɪteɪlz/    n. 细节（detail的复数）；详细资料   v. 详细说明（detail的三单形式）
+        
+        individual    /ˌɪndɪˈvɪdʒuəl/    adj. 个人的；个别的；独特的   n. 个人，个体
+
+        deferred   /dɪ'fɜːd/  adj. 延期的   v. 推迟
+
+        reference   /ˈrefrəns/   n. 参考，参照；涉及   vi. 引用
+
+
+      翻译: 个别指令的细节推迟到底4部分，指令集参考引用
+
+
+
+
+
+```
+
+
+1.1.2 Part II -- Systems Programming 
+
+```
+This part presents those aspects of the architecture that are customarily used by programmers who write operating systems,
+      aspects    /'æspekts/    n. 方面；相位；面貌（aspect的复数
+      customarily  /ˈkʌstəmərəli/  adv. 通常，习惯上
+
+    翻译： 这部分展示架构那些方面，那些通常写在操作系统被程序员使用 
+ device drivers, debuggers, and other software that supports applications programs in the protected mode of the 80386.
+
+
+      supports   /sə'port/    n. 支持；支承结构；忍受；[法] 赡养    v. 支持，忍受
+
+      在80386保护模式下，引用程序支持  设备驱动， debuggers,其他软件
+
+
+
+
+
+Chapter 4 -- Systems Architecture: Surveys the features of the 80386 that are used by systems programmers.
+      第4章 系统架构 ： 研究80386的特点特征，是被系统程序员所使用的
+ Introduces the remaining registers and data structures of the 80386 that were not discussed in Part I.
+          remaining   /rɪˈmeɪnɪŋ/    v. 仍然是；剩余；仍需去做；逗留
+          structures  /st'rʌktʃəz/   n. 结构；
+          were  /wər; wɜːr/    v. 是，在
+          discussed  /dɪˈskʌst/  v. 讨论（discuss的过去分词）；商讨
+          翻译：介绍在第一部分没有讨论的 剩余的寄存器和数据结构
+  Introduces the systems-oriented instructions in the context of the registers and data structures they support. 
+        oriented    /'ɔːrɪentɪd/    adj. 以……为方向的；重视……的
+        
+        xxx  of  aa
+        aa 提前进行翻译 
+
+        翻译  寄存器和他们支持的数据结构在接下来的内容里介绍面向系统的指令
+  Points to the chapter where each register, data structure, and instruction is considered in more detail.
+        Points   n. 点；目的（point的复数）；见解    v. 指引；瞄准
+        each    各自
+
+      翻译： 寄存器，数据结构 和 指令 各个章节，会有更多的细节
+
+
+
+
+Chapter 5 -- Memory Management: Presents details of the data structures, registers, and instructions that support virtual memory and the concepts of segmentation and paging. 
+      翻译：
+          第5章 内存管理  ：详细介绍数据结构，寄存器，和指令，虚拟内存，和分段个分页的概念
+Explains how systems designers can choose a model of memory organization ranging from completely linear ("flat") to fully paged and segmented.
+        choose    /tʃuːz/   vt. 选择，决定
+        ranging  /'reɪndʒɪŋ/  v  变化，变动； 范围，幅度；排列
+        completely   /kəmˈpliːtli/ adv. 完全地，彻底地；完整地
+        from  xxx  to  xxxx  从  xxx  到  xxxx
+
+  翻译： 解释系统设计人员怎样从完全线性到完全分页和分段中选择在内存组织范围中模型
+
+
+
+
+Chapter 6 -- Protection: Expands on the memory management features of the 80386 to include protection as it applies to both segments and pages.
+      Expands     /ɪkˈspændz/   扩大
+      applies   applies  v. 申请；涂，敷；应用
+      applies to  适用于
+
+      翻译：第6章 保护：扩大80386内存管理特征，包含保护，并且同时适用于段和页
+ Explains the implementation of privilege rules, stack switching, pointer validation, user and supervisor modes. Protection aspects of multitasking are deferred until the following chapter.
+
 ```
