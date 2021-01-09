@@ -6,7 +6,7 @@
  * 
  * 秘钥最好通过服务器随机配发一个
  */
-export default class encryptionMgr{
+export default class encryptionPlugin{
     /**
      * 加密
      * @param plaintext  字符串
@@ -20,7 +20,7 @@ export default class encryptionMgr{
         let e =encrypt.encrypt(plaintext,secretkey,type)
         return e;
     }
-
+    
     /**
      * 解密
      * @param ciphertext 

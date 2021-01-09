@@ -1,4 +1,4 @@
-import G from "../../G";
+
 import Load from "../load/Load";
 import JsonData from "./JsonData";
 
