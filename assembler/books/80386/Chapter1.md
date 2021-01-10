@@ -350,5 +350,76 @@ Chapter 6 -- Protection: Expands on the memory management features of the 80386 
 
       翻译：第6章 保护：扩大80386内存管理特征，包含保护，并且同时适用于段和页
  Explains the implementation of privilege rules, stack switching, pointer validation, user and supervisor modes. Protection aspects of multitasking are deferred until the following chapter.
+            privilege    /ˈprɪvəlɪdʒ/   n. 特权；优待   vt. 给予…特权；特免
+            validation    /ˌvælɪˈdeɪʃn/   n. 确认；批准；生效
+            supervisor    ˈsuːpəvaɪzər; ˈsjuːpəvaɪzər/  监督人，指导者；[管理] 管理人；检查员
+      a  the  xxx  of cccc;  翻译顺序为  a  cccc   xxx ;
+      解释 特权规则，切换栈，指针确认，用户和管理模式的实现。多任务保护方面 推迟到下一个章节
+
+
+
+ Chapter 7 -- Multitasking: Explains how the hardware of the 80386 supports multitasking with context-switching operations and intertask protection.     
+   翻译 ： 第七章 --多任务: 解释 80386硬件怎样切换上下文操作，和任务的保护来支持多任务执行
+
+
+
+Chapter 8 -- Input/Output: Reveals the I/O features of the 80386, including I/O instructions, protection as it relates to I/O, and the I/O permission map.
+      Reveals  /rɪˈviːlz/     n. 暴露   vt. 揭示
+      relates   /rɪˈleɪts/   v. 叙述，讲述（relate的三单形式）；使有联系；与…有关  联系关系
+
+翻译：  第8章  输出/输出 ：80386 揭示Io的功能，包含IO指令，保护在Io中的联系，和IO的权限的映射
+
+
+
+Chapter 9 -- Exceptions and Interrupts: Explains the basic interrupt mechanisms of the 80386. 
+      mechanisms    /'mekənɪzəmz/     n. 机制；[机] 机构（mechanism的复数）；机械；[机] 机构学
+      解释: 异常和中断：解释80386基本的中断机制  
+Shows how interrupts and exceptions relate to protection. Discusses all possible exceptions, listing causes and including information needed to handle and recover from the exception.
+      Discusses  讨论
+      recover   /rɪˈkʌvər/    恢复；弥补；重新获得
+
+      翻译：展示怎样使中断和异常与保护进行联系。讨论所有可能的异常，列出原因和恢复异常需要的信息
+  
+
+
+Chapter 10 -- Initialization: Defines the condition of the processor after RESET or power-up. 
+     condition   /kənˈdɪʃn/   n. 条件；情况；环境；身份；状态
+      第10章 --初始化 ： 定义重置和启动处理器的状态
+Explains how to set up registers, flags, and data structures for either real-address mode or protected mode. Contains an example of an initialization program.
+      either    /ˈaɪðər; ˈiːðər/    conj. 或者，要么  adv. 也；而且
+    翻译  解释实模式和保护模式怎样设置寄存器和标志和数据结构.包含一个初始化程序的例子
+      
+
+Chapter 11 -- Coprocessing and Multiprocessing: Explains the instructions and flags that support a numerics coprocessor and multiple CPUs with shared memory.
+      Coprocessing  协同处理
+
+      翻译: 协同处理和多任务处理: 解释一些指令和标志支持数字系统处理器和多个任务处理器共享内存
+
+Chapter 12 -- Debugging: Tells how to use the debugging registers of the 80386.
+      Tells   /telz/   v. 告诉；说（tell的第三人称单数）  n. 泄底；玄机；
+      翻译: 12章  --调试   告诉在80386中使用调试寄存器     
+```
+
+
+### 1.1.3 Part III -- Compatibility
+      Compatibility   /kəmˌpætəˈbɪləti/   n. [计] 兼容性
 
 ```
+ Other parts of the book treat the processor primarily as a 32-bit machine, omitting for simplicity its facilities for 16-bit operations. Indeed, the 80386 is a 32-bit machine, but its design fully supports 16-bit operands and addressing, too.
+      primarily   /praɪˈmerəli; ˈpraɪmərəli/   adv. 首先；主要地，根本上
+      machine  /məˈʃiːn/   n. 机械，机器
+      treat   /triːt/   vt. 治疗；对待；探讨；视为 
+      omitting   /əˈmɪtɪŋ/   省略
+      simplicity   /sɪmˈplɪsəti/  n. 朴素；简易；天真；愚蠢
+      for simplicity  为了简单起见
+      facilities  /fə'sɪlɪtɪz/  n. 设施；工具，设备 
+      Indeed   /ɪnˈdiːd/   adv. 的确；实在；真正地；甚至
+      fully  supports  完全支持
+      翻译：  这本书的其他部分这的处理器主要是32位的机器，为了简单起见  沈略了设备的16位的操作，甚至这80386是一个32位机器，但是他字节完全支持16位的操作和寻址
+
+
+      
+  This part completes the picture of the 80386 by explaining the features of the architecture that support 16-bit programs and 16-bit operations in 32-bit programs. All three processor modes are used to execute 16-bit programs: protected mode can directly execute 16-bit 80286 protected mode programs, real mode executes 8086 programs and real-mode 80286 programs, and virtual 8086 mode executes 8086 programs in a multitasking environment with other 80386 protected-mode programs. In addition, 32-bit and 16-bit modules and individual 32-bit and 16-bit operations can be mixed in protected mode.   
+
+
+```      
