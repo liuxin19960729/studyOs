@@ -419,7 +419,42 @@ Chapter 12 -- Debugging: Tells how to use the debugging registers of the 80386.
 
 
       
-  This part completes the picture of the 80386 by explaining the features of the architecture that support 16-bit programs and 16-bit operations in 32-bit programs. All three processor modes are used to execute 16-bit programs: protected mode can directly execute 16-bit 80286 protected mode programs, real mode executes 8086 programs and real-mode 80286 programs, and virtual 8086 mode executes 8086 programs in a multitasking environment with other 80386 protected-mode programs. In addition, 32-bit and 16-bit modules and individual 32-bit and 16-bit operations can be mixed in protected mode.   
+  This part completes the picture of the 80386 by explaining the features of the architecture that support 16-bit programs and 16-bit operations in 32-bit programs.
+        completes    /kəmˈpliːts/    v. 完成；结束
+
+       翻译：这部分80386完整的图像，是解释支持16位程序和在32位里面操作16位程序的架构特征 
+   All three processor modes are used to execute 16-bit programs: protected mode can directly execute 16-bit 80286 protected mode programs, real mode executes 8086 programs and real-mode 80286 programs, and virtual 8086 mode executes 8086 programs in a multitasking environment with other 80386 protected-mode programs.
+            directly   /dəˈrektli; daɪˈrektli/    adv. 直接地；立即；马上；正好地；坦率地
+            翻译：所有的三种处理器模式都使用执行16位程序：，保护模式能立即执行16位 80286保护模式程序。，实模式执8086程序，也能执行80286程序，虚拟模式在多任务环境下能执行8086程序和其他都是80386保护模式程序
+   
+    In addition, 32-bit and 16-bit modules and individual 32-bit and 16-bit operations can be mixed in protected mode.
+
+            addition   /əˈdɪʃn/   n. 添加；[数] 加法；增加物
+            in addition    另外，此外  
+            individual     /ˌɪndɪˈvɪdʒuəl/     adj. 个人的；个别的；独特的    n. 个人，个体
+
+            翻译： 此外，32位和16位模块和 个体特别的31位和16位可以混合在保护，欧式下进行操作
 
 
+
+Chapter 13 -- Executing 80286 Protected-Mode Code: In its protected mode, the 80386 can execute complete 80286 protected-mode systems, because 80286 capabilities are a subset of 80386 capabilities.
+       
+      capabilities   /ˌkeɪpəˈbɪlətɪs/   n. 能力（capability的复数）；功能；性能
+      subSet  子集
+      翻译：第13章 --执行80286保护模式的的代码：在保护模式下，80386能完全执行80286的保护系统，因为80286的功能是80386的子集
+
+
+Chapter 14 -- 80386 Real-Address Mode: Explains the real mode of the 80386 CPU. In this mode the 80386 appears as a fast real-mode 80286 or fast 8086 enhanced with additional instructions.
+      appears    /ə'pɪəs/     v. 出现；呈现；看上去好像 
+      enhanced   /ɪnˈhɑːnst/    v. 提高，增强（enhance 的过去式及过去分词） 
+      翻译：第14章 -- 80386 实模式：解释80386cpu实模式。在这个模式下(也就是实模式下)，80386作为一个快速的80286实模式，或快速的8086，和8086的添加的8086的增强指令出现
+
+
+
+Chapter 15 -- Virtual 8086 Mode: The 80386 can switch rapidly between its protected mode and V86 mode, giving it the ability to multiprogram 8086 programs along with "native mode" 32-bit programs.
+            rapidly    /ˈræpɪdli/     adv. 迅速地；很快地；立即
+            ability    /əˈbɪləti/   n. 能力，能耐；才能  
+
+            along with    连同……一起  ,与……一道；
+翻译： 第15章  --8086虚拟模式：80386能够迅速在保护模式和虚拟模式之间转换，获得8086多道程序和本地模式模式程序的能力 
 ```      
