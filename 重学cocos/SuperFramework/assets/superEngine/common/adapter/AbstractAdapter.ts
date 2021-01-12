@@ -5,5 +5,5 @@
  */
 import Adapter from "./Adapter";
 export  abstract  class AbstractAdapter implements Adapter{
-    abstract addPlugin();
+    abstract addPlugin(plugins?:any);
 }

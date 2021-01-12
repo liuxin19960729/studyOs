@@ -5,5 +5,5 @@ export default interface Adapter {
     /**
      * 添加插件
      */
-    addPlugin();
+    addPlugin(plugins?:any);
 }
