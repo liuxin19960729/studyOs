@@ -457,4 +457,65 @@ Chapter 15 -- Virtual 8086 Mode: The 80386 can switch rapidly between its protec
 
             along with    连同……一起  ,与……一道；
 翻译： 第15章  --8086虚拟模式：80386能够迅速在保护模式和虚拟模式之间转换，获得8086多道程序和本地模式模式程序的能力 
-```      
+
+
+
+Chapter 16 -- Mixing 16-Bit and 32-Bit Code: Even within a program or task, the 80386 can mix 16-bit and 32-bit modules. Furthermore, any given module can utilize both 16-bit and 32-bit operands and addresses.
+   within     /wɪˈðɪn/    prep. 在……之内；在……里面    adv. 在内部；在里面   n. 里面；内部
+    Furthermore     fɜːðəˈmɔːr/    adv. 此外；而且
+
+    utilize    /ˈjuːtəlaɪz/    vt. 利用  
+翻译： 第16章 --  混合16位和32位代码：即使在一个程序或一个任务里面，，80386会混合16位和32位模块，此外，任何模块都能够利用16位和32位的操作数和地址
+
+```   
+
+
+
+1.1.4 Part IV -- Instruction Set (指令集)
+
+```
+Parts I, II, and III present overviews of the instructions as they relate to specific aspects of the architecture, 
+
+            overviews    n. 概述（overview的复数）
+            
+
+翻译：1，2，3部分呈现指令作为在在架构特别方面的概述
+
+     
+but this part presents the instructions in alphabetical order,
+       alphabetical   /ˌælfəˈbetɪkl/   adj. 字母的； 
+
+   翻译： 这部分展示的是字母排序的指令    
+ providing the detail needed by assembly-language programmers and programmers of debuggers, 
+      翻译：提供汇编语言程序员，程序员，debug程序员的详细需要求
+ compilers, operating systems, etc. Instruction descriptions include algorithmic description of operation, 
+ 
+      algorithmic  /,ælɡə'rɪðmɪk/   算法的 
+     翻译： 编译，操作系统，et 指令描绘包含出操作算法描述
+ effect on flag settings, effect of operand- or address-size attributes, effect of processor modes, and possible exceptions.
+      翻译：标记设置影响，，操作数或地址大小属性的影响，处理器模式的影响，和可能异常的影响
+      
+```
+
+
+1.1.5 Appendices  (附加，附件)
+
+```
+The appendices present tables of encodings and other details in a format designed for quick reference by assembly-language and systems programmers.
+
+翻译  附件展示一些表，和编码和其他详细的格式化设计汇编程序和系统程序的的超链接
+```
+
+
+
+
+1.2 Related Literature (相关文献)  
+Literature   /ˈlɪtrətʃər/     n. 文学；文献；文艺；著作
+
+```
+The following books contain additional material concerning the 80386 microprocessor:
+Introduction to the 80386, order number 231252
+80386 Hardware Reference Manual, order number 231732
+80386 System Software Writer's Guide, order number 231499
+80386 High Performance 32-bit Microprocessor with Integrated Memory Management (Data Sheet), order number 231630
+```
