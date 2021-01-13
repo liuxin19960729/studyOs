@@ -514,8 +514,50 @@ Literature   /ˈlɪtrətʃər/     n. 文学；文献；文艺；著作
 
 ```
 The following books contain additional material concerning the 80386 microprocessor:
+翻译：以下书籍包含关于80386的附加材料
+
 Introduction to the 80386, order number 231252
+      注意 order 不仅有排序，还有订单的意思 
+
+翻译：介绍80386，      订单号231732
 80386 Hardware Reference Manual, order number 231732
+      翻译：80386硬件参考手册， 订单号231732
 80386 System Software Writer's Guide, order number 231499
+
+      翻译：80386 系统软件作者指南
 80386 High Performance 32-bit Microprocessor with Integrated Memory Management (Data Sheet), order number 231630
+
+      Integrated /ˈɪntɪɡreɪtɪd/  完整，综合，集成
+      翻译：80386高性能32位微处理器集成内存管理(数据表)
+```
+
+
+1.3 Notational Conventions(符号约定)
+
+   Notational n  符号 
+
+   Conventions  /kənˈvenʃnz/   n. [法] 惯例；会议；[计] 约定
+
+```
+This manual uses special notations for data-structure formats, for symbolic representation of instructions, for hexadecimal numbers, and for super- and sub-scripts.
+     manual   /ˈmænjuəl/   n 手册
+     symbolic   /sɪmˈbɒlɪk/   adj. 象征的；符号的；使用符号的
+     representation 展示，表示
+     present 礼物，展现
+     for  为了  用于
+     翻译：这手册对数据结构格式化使用特别的符号，用于指令符号的表示，用于16进制数字表示，用于操脚本和下表脚本
+ Subscript characters are surrounded by {curly brackets}, for example 10{2} = 10 base 2. 
+      characters    /ˈkærəktə(r)z/   n. 特性；人物角色 字符  v. 描述 
+      surrounded  /sə'raʊndɪd/   被....围绕
+      round adv 旋转  n 轮次 阶段  prep  围绕
+      curly   /ˈkɜːli/  adj. 卷曲的；卷毛的；
+      brackets  n. 支架；括号，圆括号；舱口围板支架
+      翻译：下标字符被{}围绕，例如 10{2}=10 2为基数
+ Superscript characters are preceeded by a caret and enclosed within (parentheses), for example 10^(3) = 10 to the third power. A review of these notations will make it easier to read the manual.
+     Superscript  上标
+     precede  /prɪˈsiːd/   vt. 领先，在…之前；优于，高于 
+     caret    /ˈkærət/  n. 脱字符号；插入符号
+     enclosed    /ɪnˈkləʊzd/   adj. （用墙等）围住的  v. 附上
+     parenthese   n. 括号；圆括号
+      翻译：上标字符前面有插入字符，并包含在圆括号里面，例如 10^(3) =10的3次幂， 回顾其他的符号阅读手册起来更容易一些
 ```
