@@ -561,3 +561,52 @@ This manual uses special notations for data-structure formats, for symbolic repr
      parenthese   n. 括号；圆括号
       翻译：上标字符前面有插入字符，并包含在圆括号里面，例如 10^(3) =10的3次幂， 回顾其他的符号阅读手册起来更容易一些
 ```
+
+
+1.3.1 Data-Structure Formats(数据结构的格式)
+```
+   In illustrations of data structures in memory, smaller addresses appear at the lower-right part of the figure; 
+         illustrations  /ɪ,lʌs'treʃən/ 插图  插画  说明
+
+          smaller addresses(就是我们说的小端模式)
+        
+        翻译：在内存里的数据结构的说明中，小地址的展现在右下部分的图片；
+
+   addresses increase toward the left and upwards. Bit positions are numbered from right to left. Figure 1-1 illustrates this convention.   
+      toward    /tə'wɔːd; twɔːd; tɔːd/   adj. 即将来到的，进行中的   prep. 向；趋向；对于；接近（时间）；靠近；用于，为了（同 towards）
+   翻译 在地址的向上向左增加，位 的位置 从 右到左，图1-1说明了这个约定
+```
+![内存中数据结构的格式](./img/1-1.png)
+
+
+
+
+1.3.2 Undefined Bits and Software Compatibility
+<br>(为定义位和软件的兼容性)
+
+```
+
+In many register and memory layout descriptions, certain bits are marked as undefined. 
+  layout     /ˈleɪaʊt/    n. 布局；设计；安排；陈列 
+  certain   /ˈsɜːtn/  adj. 某一；必然的；确信；无疑的；有把握的
+
+  
+  翻译：许多寄存器和内存局部的描述，某些位被标记为未定义
+ 
+When bits are marked as undefined (as illustrated in Figure 1-1), it is essential for compatibility with future processors that software treat these bits as undefined. Software should follow these guidelines in dealing with undefined bits: 
+   essential    /ɪˈsenʃl/     adj. 基本的；必要的；本质的；精华的   n. 本质；要素；要点；必需品
+   treat  这里是 视为的意思 
+
+   guidelines  指导方针
+   翻译：当未标记为未定义，(在图1+1里面说明)，本质是为了和未来的处理器进行兼容，那些软件吧这些位视为是未定义的。软件应该遵循如下这些方针处理这些未定的位
+Do not depend on the states of any undefined bits when testing the values of registers that contain such bits. Mask out the undefined bits before testing.
+      depend   /dɪˈpend/    vi. 依赖，依靠；取决于；相信，信赖
+      states   /steɪts/    vt. 声明
+      such   /sʌtʃ/  adj. 这样的，如此的
+      xxxxx   when ccc   翻译顺序  当  ccc时  xxxx
+      翻译   当测试包含这些位的寄存器值的时候，不依赖任何未定义的位的状态 
+Do not depend on the states of any undefined bits when storing them in memory or in another register.
+Do not depend on the ability to retain information written into any undefined bits.
+When loading a register, always load the undefined bits as zeros or reload them with values previously stored from the same register.
+
+```
