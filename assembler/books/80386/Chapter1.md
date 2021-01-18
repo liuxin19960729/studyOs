@@ -606,7 +606,77 @@ Do not depend on the states of any undefined bits when testing the values of reg
       xxxxx   when ccc   翻译顺序  当  ccc时  xxxx
       翻译   当测试包含这些位的寄存器值的时候，不依赖任何未定义的位的状态 
 Do not depend on the states of any undefined bits when storing them in memory or in another register.
+
+      翻译：当存储他们到内存或者保存到寄存器，不要声明依赖任何未定义的是位，
 Do not depend on the ability to retain information written into any undefined bits.
+      retain   /rɪˈteɪn/    vt. 保持；雇；记住
+      翻译： 不要依赖于保留 写入任何未定义位的信息
+
 When loading a register, always load the undefined bits as zeros or reload them with values previously stored from the same register.
+      
+      翻译：当加载一个寄存器，总是加载未定义的位作为零或者重新加载他们的以前存储在同样寄存器的值
+
+
+
+
+
+
+
+
+
+NOTE (注意)
+Depending upon the values of undefined register bits will make software dependent upon the unspecified manner in which the 80386 handles these bits. 
+     
+      翻译：依赖 未定义寄存器位之上，将软件依赖在未指明在80386 指示的这些位的方式
+Depending upon undefined values risks making software incompatible with future processors that define usages for these bits. 
+      risks   /rɪsks/   n. 风险，危险（risk复数  v. 冒…危险
+      incompatible  不兼容
+      usages    /'jʊsɪdʒ/   n. 用法
+      翻译：依赖未定义值 ，冒着软件使用这些未定义的位和处理器用法出现不兼容的风险
+AVOID ANY SOFTWARE DEPENDENCE UPON THE STATE OF UNDEFINED 80386 REGISTER BITS.
+      翻译:避免任何软件依赖 这个在80386未定义的位
+```
+
+
+
+
+1.3.3 Instruction Operands
+<br> 翻译:指令操作
 
 ```
+When instructions are represented symbolically, a subset of the 80386 Assembly Language is used. In this subset, an instruction has the following format:
+
+      翻译: 当指令用符号表示的时候。一个在80386汇编语言的子集 被使用。在子集例，一个指令有下面的格式
+
+
+
+
+label: prefix mnemonic argument1, argument2, argument3
+      mnemonic    /nɪˈmɒnɪk/   adj. 记忆的；助记的；记忆术的  ；记忆术  助记符  
+
+翻译：标签：前置 助记符  .......
+where:
+A label is an identifier that is followed by a colon.
+      identfier   /aɪˈdentɪfaɪə(r)/  n. 标识符，认同者；检验人，鉴定人
+
+      colon   /ˈkəʊlən; ˈkəʊlɒn/  n. [解剖] 结肠；冒号
+翻译：
+     标签是那个冒号后面的标识符
+A prefix is an optional reserved name for one of the instruction prefixes.
+      reserve    /rɪˈzɜːv/  保留，存储预制
+      翻译: 一分指令的前置是一个可选的保留名字
+
+A mnemonic is a reserved name for a class of instruction opcodes that have the same function.
+      mnemonic    /nɪˈmɒnɪk/  adj. 记忆的；助记的；记忆术的  ；记忆术  助记符
+      翻译： 助记符是一类具有相同功能的指令操作吗的保留名字
+
+The operands argument1, argument2, and argument3 are optional. 
+这操作码  argument1, argument2, and argument3 是可选择的
+There may be from zero to three operands, depending on the opcode. When present, they take the form of either literals or identifiers for data items.
+      take   拿，取；带.....
+      identifiers for data items.  数据项的形式
+            翻译：这些操作码，可能有1个3个操作数。当出现时，他们采用数据项的形式是文字和标识符
+ Operand identifiers are either reserved names of registers or are assumed to be assigned to data items declared in another part of the program (which may not be shown in the example). When two operands are present in an instruction that modifies data, the right operand is the source and the left operand is the destination.
+```
+
+
