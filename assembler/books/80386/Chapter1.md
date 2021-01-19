@@ -676,7 +676,67 @@ There may be from zero to three operands, depending on the opcode. When present,
       take   拿，取；带.....
       identifiers for data items.  数据项的形式
             翻译：这些操作码，可能有1个3个操作数。当出现时，他们采用数据项的形式是文字和标识符
- Operand identifiers are either reserved names of registers or are assumed to be assigned to data items declared in another part of the program (which may not be shown in the example). When two operands are present in an instruction that modifies data, the right operand is the source and the left operand is the destination.
+ Operand identifiers are either reserved names of registers or are assumed to be assigned to data items declared in another part of the program (which may not be shown in the example).
+      reserved   /rɪˈzɜːvd/  保留预定
+      assumed    /əˈsjuːmd/   v. （无证据的）假设；（承担）责任；夺取（权力）；
+      assigned   /əˈsaɪnd/  adj. 指定的；已分配的
+      翻译：寄存器时操作标志符的保留名字或是假定分配给另一部分程序声明的数据项(在示例中可能没有展示)
+
+  When two operands are present in an instruction that modifies data, the right operand is the source and the left operand is the destination.
+      modifies    /ˈmɒdɪfaɪ/修改,修饰,更改
+      destination   /ˌdestɪˈneɪʃn/   . 目的地，终点
+
+      When two operands are present in an instruction that modifies data  
+
+      when  that  xxx     ,当  xxxx
+      two operands are present in an instruction  
+      xxxx   in   xxx
+      xxx    xxxx  翻译的顺序
+
+  翻译：当修改数据指令里面有两个操作数，右边的操作数是源数据，左边的操作数是目的数
+
+
+
+
+
+
+
+
+For example:  例如
+
+LOADREG: MOV EAX, SUBTOTAL  
+
+In this example LOADREG is a label, MOV is the mnemonic identifier of an opcode, EAX is the destination operand, and SUBTOTAL is the source operand.  
+
+翻译 在这个例子里面 LOADREG 是一个标签，mov 是 用于记忆标识符的 操作码，EAX 是目的操作操作码，SUBTOTAL 是源数据操作码
 ```
 
 
+
+
+
+
+
+1.3.4 Hexadecimal Numbers<br>
+16进制数据
+```
+Base 16 numbers are represented by a string of hexadecimal digits followed by the character H. A hexadecimal digit is a character from the set (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F). 
+     digits  /ˈdɪdʒɪts/  n. [计] 数字；手指；
+      翻译：基础为16的数字，16进制的数字字符串后面跟着字符H .一个16进制数字数字是一个集合（(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F)）里面的字符
+In some cases, especially in examples of program syntax, a leading zero is added if the number would otherwise begin with one of the digits A-F. For example, 0FH is equivalent to the decimal number 15.
+      case    情况
+      especially    /ɪˈspeʃəli/   特别尤其
+      lead     /li:d; led/   vt. 领导；致使；引导；指挥  主要
+      otherwise     /ˈʌðəwaɪz/   adv. 否则；另外；在其他方面
+      equivalent    /ɪˈkwɪvələnt/   adj  相等的；等价的；等效的  n  相等
+      翻译： 在一些情况下，尤其是程序语法例子，如果这个数字前面添加一个0，否则开头写一个数字A-F，如果这个数字会，否则开始在一个数字A-F，例如 OFH 的和10进制数字15相等
+
+```
+
+
+
+1.3.5 Sub- and Super-Scripts<br>
+
+```
+This manual uses special notation to represent sub- and super-script characters. Sub-script characters are surrounded by {curly brackets}, for example 10{2} = 10 base 2. Super-script characters are preceeded by a caret and enclosed within (parentheses), for example 10^(3) = 10 to the third power.
+```
