@@ -738,5 +738,12 @@ In some cases, especially in examples of program syntax, a leading zero is added
 1.3.5 Sub- and Super-Scripts<br>
 
 ```
-This manual uses special notation to represent sub- and super-script characters. Sub-script characters are surrounded by {curly brackets}, for example 10{2} = 10 base 2. Super-script characters are preceeded by a caret and enclosed within (parentheses), for example 10^(3) = 10 to the third power.
+This manual uses special notation to represent sub- and super-script characters.
+      翻译：这个手册使用特别的符号来表示子符号和下标符号
+ Sub-script characters are surrounded by {curly brackets}, for example 10{2} = 10 base 2. Super-script characters are preceeded by a caret and enclosed within (parentheses), for example 10^(3) = 10 to the third power.
+      surrounded     /sə'raʊndɪd/    adj. 被…环绕着的
+      base  以....为基础，以....为底
+      preceeded   前面，领先
+      翻译： 子符号是被{}环绕，例如 10{2}=10 10以2为底，上标符号前面有一个插入符号，并包含在()里面，例如10^(3),3是幂
+
 ```
