@@ -84,6 +84,49 @@ Each byte is assigned a unique address that ranges from zero to a maximum of 2^(
 
 
 
-The model of memory organization seen by applications programmers is determined by systems-software designers. The architecture of the 80386 gives designers the freedom to choose a model for each task. The model of memory organization can range between the following extremes:
-    在这个模式下应用程序员
+The model of memory organization seen by applications programmers is determined by systems-software designers. 
+     determined   /dɪˈtɜːmɪnd/     adj. 决定了的；坚决的
+     The model of memory organization  内存组织模型   c of xxx  xxx修饰c这个名词
+     翻译：应用程序员看到的内存模型是系统软件设计者决定的   
+The architecture of the 80386 gives designers the freedom to choose a model for each task. 
+     翻译：80386架构给了设计者自由的选择每一个任务模式。
+The model of memory organization can range between the following extremes:
+    extreme /ɪkˈstriːm/ adj. 极端的；极度的；  n. 极端；末端；
+    翻译：内存组织模型有下面两种极端
+   
+   
+    A "flat" address space consisting of a single array of up to 4 gigabytes.
+        up to 多大，最多  胜任
+        flat adj  平的  n 平地 公寓 
+        consist 组成
+    翻译：最多4GB的的单独的数组组成一个平面的地址空间 
+    A segmented address space consisting of a collection of up to 16,383 linear address spaces of up to 4 gigabytes each.
+
+    翻译：一个段地址空间 每一个最多4GB， 最多16383 线性地址空间的集合的集合组成
+
+
+Both models can provide memory protection.
+     翻译：两种模型都提供内存保护     
+ Different tasks may employ different models of memory organization.
+    employ  /ɪmˈplɔɪ/  采用使用雇佣
+    翻译: 不同的任务可能会使用不同的内存组织模式
+  The criteria that designers use to determine a memory organization model and the means that systems programmers
+        criteria   /kraɪ'tɪərɪə/  n 标准,条件
+        翻译 设计者决定内存组织模型，系统程序员使用这些标准
+    
+
+
+use to implement that model are covered in Part II--Systems Programming.
+    翻译： 使用，实现，内存组织模型在第二部分程序里面上包含
+```
+
+
+
+### 2.1.1 The "Flat" Model
+平面模式
+```
+In a "flat" model of memory organization, the applications programmer sees a single array of up to 2^(32) bytes (4 gigabytes).
+
+    翻译：在内存组织平面模式里面，应用程序员看 内存组织模式就是一个大小为2^32byte(4GB)的单个是的数组
+ While the physical memory can contain up to 4 gigabytes, it is usually much smaller; the processor maps the 4 gigabyte flat space onto the physical address space by the address translation mechanisms described in Chapter 5. Applications programmers do not need to know the details of the mapping.
 ```
