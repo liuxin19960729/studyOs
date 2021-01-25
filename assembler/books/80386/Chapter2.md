@@ -128,5 +128,86 @@ use to implement that model are covered in Part II--Systems Programming.
 In a "flat" model of memory organization, the applications programmer sees a single array of up to 2^(32) bytes (4 gigabytes).
 
     翻译：在内存组织平面模式里面，应用程序员看 内存组织模式就是一个大小为2^32byte(4GB)的单个是的数组
- While the physical memory can contain up to 4 gigabytes, it is usually much smaller; the processor maps the 4 gigabyte flat space onto the physical address space by the address translation mechanisms described in Chapter 5. Applications programmers do not need to know the details of the mapping.
+ While the physical memory can contain up to 4 gigabytes, it is usually much smaller;
+    
+    翻译：物理内存最大4GB,他们通常比这个小
+  the processor maps the 4 gigabyte flat space onto the physical address space by the address translation mechanisms described in Chapter 5.
+    onTo  映射
+    翻译 处理器在第5章描述4GB的平面地址空间映射到物理地址空间的翻译机制
+   Applications programmers do not need to know the details of the mapping.
+
+    翻译：应用程序员不需要知道详细的地址的映射
+
+
+
+
+
+A pointer into this flat address space is a 32-bit ordinal number that may range from 0 to 2^(32) -1. 
+
+            ordinal    /ˈɔːdɪnl/    adj. 顺序的，依次的
+    翻译  指针进入到平面地址是一个32位范围从0到2^32-1按顺序是数
+
+Relocation of separately-compiled modules in this space must be performed by systems software (e.g., linkers, locators, binders, loaders).
+
+        separately /ˈseprətli/    adv. 分别地；分离地；个别地
+        performed  执行
+        翻译：单独的编译模块重置编译在这个地方不许由系统软件执行
+
 ```
+
+
+
+### 2.1.2 The Segmented Model
+
+翻译：段模型
+
+```
+In a segmented model of memory organization, the address space as viewed by an applications program (called the logical address space) is a much larger space of up to 2^(46) bytes (64 terabytes). 
+    logical   /ˈlɒdʒɪkl/  逻辑的合理的
+    翻译：在内存组织段模型里，地址空间被看作为是一个应用程序(调用逻辑地址空间) 是一个非常大的空间，大道 2^46 byte (64TB)
+The processor maps the 64 terabyte logical address space onto the physical address space (up to 4 gigabytes) by the address translation mechanisms described in Chapter 5.
+
+    翻译：在第5章描述处理器包含64TB的逻辑地址空间被地址转换机制映射到物理地址空间(最多4GB)
+ Applications programmers do not need to know the details of this mapping.
+
+    翻译：  翻译：应用程序员不需要知道详细的地址的映射
+
+
+
+
+
+
+
+Applications programmers view the logical address space of the 80386 as a collection of up to 16,383 one-dimensional subspaces, each with a specified length.
+
+    翻译：应用程序员在80386中查看逻辑地址空间，作为一个最多16383的一维空间集合，每一个元素都有指定的的长度
+ Each of these linear subspaces is called a segment. 
+    翻译：这些每一个线性空间是一个段
+ A segment is a unit of contiguous address space.
+    unit  单元单位
+    contiguous   /kənˈtɪɡjuəs/  连续的 邻近的
+    翻译：一个段是一个连续地址空间的单位
+  Segment sizes may range from one byte up to a maximum of 2^(32) bytes (4 gigabytes).
+
+    翻译:段的大小的可能的宽度从1个byte 到 2^32 byte 最大的数 (4GB)
+
+
+
+
+
+A complete pointer in this address space consists of two parts (see Figure 2-1):
+    
+    翻译：一个完整的指针在地址空间两个部分(看图片2-1)组成
+    A segment selector, which is a 16-bit field that identifies a segment.
+    翻译：一个段选择器，标识一个段的16位字段
+    An offset, which is a 32-bit ordinal that addresses to the byte level within a segment.
+    ordinal    /ˈɔːdɪnl/    adj. 顺序的，依次的    n序数
+    翻译：偏移，是一个32序数，地址是段里面的字节级别
+
+    
+```
+
+
+
+
+
