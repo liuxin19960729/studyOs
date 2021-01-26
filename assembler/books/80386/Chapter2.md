@@ -205,8 +205,79 @@ A complete pointer in this address space consists of two parts (see Figure 2-1):
     翻译：偏移，是一个32序数，地址是段里面的字节级别
 
     
+
+
+  During execution of a program, the processor associates with a segment selector the physical address of the beginning of the segment. 
+        During   /ˈdjʊərɪŋ/  在......期间
+        associates  /ə'səʊʃɪeɪts/   n. 同伴；合作人；联合公司
+        翻译:在执行程序期间，处理器 与 段选择器和段开始的物理地址有联系起来  
+  Separately compiled modules can be relocated at run time by changing the base address of their segments.
+        Separetely 单独的
+
+        翻译:单独的编译模块在重新运行的时候，他们的段的地址会改变
+   The size of a segment is variable; therefore, a segment can be exactly the size of the module it contains.  
+
+    exactly 恰好
+    翻译：段的大小是可变的；因此，段会恰好是模块包含的大小
+
+
 ```
 
+
+
+
+## 2.2 Data Types
+数据类型
+
+```
+Bytes, words, and doublewords are the fundamental data types (refer to Figure 2-2).
+    fundamental  /ˌfʌndəˈmentl/   基本的
+    翻译：byte word  和 doubleworld 是基本的数据类型(图片2-2)
+ A byte is eight contiguous bits starting at any logical address. The bits are numbered 0 through 7; 
+    contiguous 连续的
+    翻译：byte 是 8个连续的bit ,开始在任何的逻辑地址。位的数字排序是0到7
+ bit zero is the least significant bit.
+    significat   /sɪɡˈnɪfɪkənt/  重大的有意义的  
+    翻译  0位是最低有效位
+
+
+
+
+
+
+
+
+A word is two contiguous bytes starting at any byte address. A word thus contains 16 bits.
+    thus 因此
+    翻译：world 是两个连续的 byte ,在任何地方开始。一个Word因此包含16位
+ The bits of a word are numbered from 0 through 15; bit 0 is the least significant bit.
+    numbered 编号，列表
+    翻译一个word是的编号是0位到15位;0位是最低有效位
+  The byte containing bit 0 of the word is called the low byte; the byte containing bit 15 is called the high byte.
+    翻译 byte 包含word的0位叫做最低byte;byte 包含15位是最高byte
+
+```
+
+
+#### Figure 2-2
+<pre>
+  7              0
+ +---------------+
+ |     BYTE      |  BYTE
+ +---------------+
+
+  15              7              0
+ +---------------+---------------+
+ |   HIGH BYTE   |   LOW BYTE    |  WORD
+ +---------------+---------------+
+    address n+1      address n
+
+  31              23              15              7             0
+ +---------------+---------------+---------------+--------------+
+ |           HIGH WORD           |            LOW WORD          | DOUBLEWORD
+ +---------------+---------------+---------------+--------------+
+    address n+3     address n+2     address n+1      address n
+</pre>
 
 
 
