@@ -256,6 +256,54 @@ A word is two contiguous bytes starting at any byte address. A word thus contain
   The byte containing bit 0 of the word is called the low byte; the byte containing bit 15 is called the high byte.
     翻译 byte 包含word的0位叫做最低byte;byte 包含15位是最高byte
 
+ 
+ 
+
+ Each byte within a word has its own address, and the smaller of the addresses is the address of the word.
+        翻译：一个word里面每个byte都有他们自己的地址，word 的地址是里面的小地址
+  The byte at this lower address contains the eight least significant bits of the word, while the byte at the higher address contains the eight most significant bits.
+        翻译：字 里面的byte小地址包含8个最低有效位，当这个byte地址是高地址包含8位高有效位
+
+
+
+
+A doubleword is two contiguous words starting at any byte address. A doubleword thus contains 32 bits. 
+    翻译：双字(double world) 是两个连续的字(world) 开始在任何 字节地址，因此一个双字节包含32位
+The bits of a doubleword are numbered from 0 through 31; 
+    翻译：一个双字的位的编号从0到31
+bit 0 is the least significant bit.
+    翻译：0位是最小有效位
+ The word containing bit 0 of the doubleword is called the low word; the word containing bit 31 is called the high word.
+    翻译： 双字包含的0位的字叫做低字;自包含32位叫做高位字
+
+
+
+
+Each byte within a doubleword has its own address, and the smallest of the addresses is the address of the doubleword. 
+    翻译：在双字里面每一个字节都有自己的地址，最小的地址就是双字的地址
+The byte at this lowest address contains the eight least significant bits of the doubleword, while the byte at the highest address contains the eight most significant bits.
+    翻译：在双字节中最低的地址字节包含8个最低有效位，当 这是一个高地址的字节，这个字节包含8位高有效位
+ Figure 2-3 illustrates the arrangement of bytes within words anddoublewords.
+    illustrates   /ˈɪləstreɪts/  阐述说明 
+    arrangement  /əˈreɪndʒmənt/  布置证明 
+    翻译：图片2-3对双字的这些字节的整理阐述和说明
+
+
+
+
+
+Note that words need not be aligned at even-numbered addresses and doublewords need not be aligned at addresses evenly divisible by four. 
+    aligned /əˈlaɪnd/   结盟,支持,校准
+    翻译：注意那些字需要不需要交准双数地址和双字需要不校准呢能被4整除的地址
+This allows maximum flexibility in data structures (e.g., records containing mixed byte, word, and doubleword items) and efficiency in memory utilization.
+    flexibility 灵活的弹性的
+    maximum  最大的
+    efficiency /ɪˈfɪʃnsi/  效率功效
+    utilization  利用
+    翻译：这使得数据结构最大的灵活性(记录混合的字节，字，和双字 元素) 和内存利用的效率
+ When used in a configuration with a 32-bit bus, actual transfers of data between processor and memory take place in units of doublewords beginning at addresses evenly divisible by four;
+    翻译：
+  however, the processor converts requests for misaligned words or doublewords into the appropriate sequences of requests acceptable to the memory interface. Such misaligned data transfers reduce performance by requiring extra memory cycles. For maximum performance, data structures (including stacks) should be designed in such a way that, whenever possible, word operands are aligned at even addresses and doubleword operands are aligned at addresses evenly divisible by four. Due to instruction prefetching and queuing within the CPU, there is no requirement for instructions to be aligned on word or doubleword boundaries. (However, a slight increase in speed results if the target addresses of control transfers are evenly divisible by four.)
 ```
 
 
@@ -279,6 +327,43 @@ A word is two contiguous bytes starting at any byte address. A word thus contain
     address n+3     address n+2     address n+1      address n
 </pre>
 
+#### Figure 2-3
+
+<pre>
+                  MEMORY
+       BYTE       VALUES
+All values in hexadecimal
+     ADDRESS   +----------+
+              E|          |
+               |----------|--+
+              D|    7A    |  |- DOUBLE WORD AT ADDRESS A
+               |----------|-+|  CONTAINS 7AFE0636
+              C|    FE    | ||
+               |----------| |- WORD AT ADDRESS B
+              B|    06    | || CONTAINS FE06
+               |----------|-+|
+              A|    36    |  |
+               |----------|--|
+              9|    1F    |  |- WORD AT ADDRESS 9
+               |----------|--+  CONTAINS IF
+              8|          |
+               |----------|--+
+              7|    23    |  |
+               |----------|  |- WORD AT ADDRESS 6
+              6|    OB    |  |  CONTAINS 23OB
+               |----------|--+
+              5|          |
+               |----------|
+              4|          |
+               |----------|--+
+              3|    74    |  |
+               |----------|-+|- WORD AT ADDRESS 2
+              2|    CB    | ||  CONTAINS 74CB
+               |----------|--+
+              1|    31    | |-- WORD AT ADDRESS 1
+               |----------|-+   CONTAINS CB31
+              0|          |
+               +----------+
 
 
-
+</pre>
