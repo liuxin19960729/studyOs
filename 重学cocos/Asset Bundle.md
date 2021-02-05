@@ -221,3 +221,84 @@ cc.assetManager.removeBundle(bundle);
 
 
 ```
+
+
+加载内置 Asset Bundle 
+
+
+```js
+第二种方式
+
+勾选构建平台上
+settings.js
+  server: "http:www.baidu.com",
+  cc.assetManager.init({
+    bundleVers: settings.bundleVers,
+    subpackages: settings.subpackages,
+    remoteBundles: settings.remoteBundles,
+    server: settings.server,
+    subContextRoot: settings.subContextRoot
+  });
+
+    cocos打包已经帮我们配置进去
+
+
+let bundleRoot = [];
+// 加入 internal bundle 的 URL 地址
+bundleRoot.push('http://myserver.com/assets/internal');
+// 如果有 resources bundle, 则加入 resources bundle 的 URL 地址
+bundleRoot.push('http://myserver.com/assets/resources');
+// 加入 main bundle 的 URL 地址
+bundleRoot.push('http://myserver.com/assets/main');
+
+var count = 0;
+function cb (err) {
+    if (err) {
+        return console.error(err.message, err.stack);
+    }
+    count++;
+    if (count === bundleRoot.length + 1) {
+        cc.game.run(option, onStart);
+    }
+}
+
+cc.assetManager.loadScript(settings.jsList.map(x => 'src/' + x), cb);
+
+for (let i = 0; i < bundleRoot.length; i++) {
+    cc.assetManager.loadBundle(bundleRoot[i], cb);
+}
+
+```
+
+
+### Asset Bundle 的构造
+```js
+Asset Bundle 的构造 图
+
+构建时Bundle里面的代码和资源进行一下的处理
+    代码  根据发布平台合并成一个 index.js 或 game.js 从主包剔除
+    资源   文件夹中的所有资源以及文件夹外的相关依赖资源都会放到 import 或 native 目录下
+
+    资源配置：所有资源的配置信息包括路径、类型、版本信息都会被合并成一个 config.json 文件
+
+```
+
+
+![alt Asset Bundle 的构造](./imgs/exported.png)
+
+
+###  Asset Bundle 中的脚本 
+
+```js
+   Asset Bundle 中包含脚本文件 会被全部打包到一个文件下  index.js  或main.js
+   
+ 注意：
+    游戏平台不允许加载远程脚本文件 reator 会将 Asset Bundle 的代码拷贝到 src/scripts 目录下，从而保证正常加载
+
+    不同的 Bundle 文件建议不要相互引用，可能会找不到对应文件,
+        建议使用类或变量全局命名空间这样就暴露，从而实现共享
+ 
+ 
+ 
+
+```
