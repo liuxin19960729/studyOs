@@ -8,8 +8,10 @@
 // });
 
 import { any, map } from "async";
+import { type } from "os";
 import { mainModule } from "process";
 import { Key } from "readline";
+import { Type } from "typescript";
 
 
 // async.series([
@@ -50,13 +52,18 @@ class T2{
 
 
 
-type Record<T> = {
-   [P in string]: T;
-};
+// type Record<V,T> = {
+//    [P in V]: T;
+// };
 function main(){
-   type Maps = Record<any>;
-   let aa:Maps={"key":11};
-   console.log(aa);
+   // type Maps = Record<new T1(),any>;
+   // let aa:Maps={"key":11};
+   // console.log(aa);
+
+
+   type keys= keyof T1;
+   let ss:keys;
+   
 }
 
 
