@@ -9,6 +9,7 @@
 
 import { any } from "async";
 import { mainModule } from "process";
+import { Key } from "readline";
 
 
 // async.series([
@@ -47,24 +48,13 @@ class T2{
 }
 
 
-
-
+type Record<T> = {
+   [P in keyof T]: T[P];
+};
 function main(){
-  let result=<T1&T2>{};
-  let t1=new T1();
-  for(let id in t1){
-       (<any>result)[id]=(<any>t1)[id]
-  }
-  let t2=new T2();
-  for(let id in t2){
-   if(!result.hasOwnProperty(id)){
-      (<any>result)[id]=(<any>t1)[id]
-   }else{
-      console.log("result %s key has",id)
-   }
- 
-}
-
+   // type Cache1 = Record<T1>;
+   // let c:Cache1={a:100,aa:()=>{},bb:()=>{}};
+   // console.log(c.ss)
 }
 
 

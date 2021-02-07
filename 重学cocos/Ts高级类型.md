@@ -103,4 +103,21 @@ function getName(n: NameOrResolver): Name {
 
 ```
 
+   type Cache1 = Record<"ss"|"ddd",any>
+   let c:Cache1={ss:100,ddd:"200"};
+   console.log(c.ss)
+
+
+
+
+
+type Record<T> = {
+   [P in keyof T]: T[P];
+};
+function main(){
+   type Cache1 = Record<T1>;
+   let c:Cache1={a:100,aa:()=>{},bb:()=>{}};
+   // console.log(c.ss)
+}
+
 ```
