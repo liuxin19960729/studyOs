@@ -7,7 +7,7 @@
 //    console.log(results);
 // });
 
-import { any } from "async";
+import { any, map } from "async";
 import { mainModule } from "process";
 import { Key } from "readline";
 
@@ -48,13 +48,15 @@ class T2{
 }
 
 
+
+
 type Record<T> = {
-   [P in keyof T]: T[P];
+   [P in string]: T;
 };
 function main(){
-   // type Cache1 = Record<T1>;
-   // let c:Cache1={a:100,aa:()=>{},bb:()=>{}};
-   // console.log(c.ss)
+   type Maps = Record<any>;
+   let aa:Maps={"key":11};
+   console.log(aa);
 }
 
 
